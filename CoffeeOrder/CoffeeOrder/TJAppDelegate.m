@@ -19,6 +19,22 @@
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     // Override point for customization after application launch.
     
+    UITabBar *tabBar = [tabBarController tabBar];
+    if ([tabBar respondsToSelector:@selector(setBackgroundImage:)])
+    {
+        // ios 5.x
+        [tabBar setBackgroundImage:[UIImage imageNamed:@"tabBarBg"]];
+    }
+    else
+    {
+        // ios 4.x
+        CGRect frame = CGRectMake(0, 0, 320, 49);
+        UIView *tabbg_view = [[UIView alloc] initWithFrame:frame];
+        UIImage *tabbag_image = [UIImage imageNamed:@"tabBarBg"];
+        UIColor *tabbg_color = [[UIColor alloc] initWithPatternImage:tabbag_image];
+        tabbg_view.backgroundColor = tabbg_color;
+        [tabBar insertSubview:tabbg_view atIndex:0];
+    }
     DDMenuController *rootController = [[DDMenuController alloc] initWithRootViewController:tabBarController];
     _menuController = rootController;
     

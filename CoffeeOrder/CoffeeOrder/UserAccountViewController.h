@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASIFormDataRequest.h"
 
 @interface UserAccountViewController : UIViewController
 
+@property NSString *username;
+@property NSString *password;
 @end

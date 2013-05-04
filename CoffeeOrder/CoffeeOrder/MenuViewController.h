@@ -14,4 +14,9 @@
 }
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UITableView *menuListTableView;
+
+@property (strong, nonatomic) NSArray *dataList;
+@property (strong, nonatomic) NSArray *imageList;
+
+- (void) loadDataWithCategoryID:(NSInteger) categoryID;
 @end

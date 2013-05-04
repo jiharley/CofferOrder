@@ -18,6 +18,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    float version = [[[UIDevice currentDevice] systemVersion] floatValue];
+    UIImage *backgroundImage = [UIImage imageNamed:@"navigationBg"];
+    if (version >= 5.0) {
+        [self.navigationController.navigationBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
+    }
+    else
+    {
+        [self.navigationController.navigationBar insertSubview:[[UIImageView alloc] initWithImage:backgroundImage]atIndex:1];
+    }
 }
 
 - (void)didReceiveMemoryWarning
