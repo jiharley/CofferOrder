@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 extern NSString *const serverURL;
+//extern NSArray *const categoryListArray;
 @interface Constants : NSObject
 
 @end

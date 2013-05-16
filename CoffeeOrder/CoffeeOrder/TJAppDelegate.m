@@ -11,11 +11,16 @@
 #import "MenuViewController.h"
 #import "SideViewController.h"
 
+
 @implementation TJAppDelegate
 @synthesize selectedRowNum;
+@synthesize categoryName;
+@synthesize orderedList;
 @synthesize menuController = _menuController;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    categoryName = @"risotto";
+    orderedList = [[NSMutableArray alloc] init];
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     // Override point for customization after application launch.
     

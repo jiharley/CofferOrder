@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1</key>
+	<dict>
+		<key>detail</key>
+		<string>营业时间:8:00 - 23:00, 电话:62532779</string>
+		<key>addressEN</key>
+		<string>171 Jiaozhou lu, Jing&apos;an. near Beijing lu.</string>
+		<key>addressCN</key>
+		<string>静安区胶州路171号，靠近北京西路</string>
+		<key>name</key>
+		<string>Aura唉哇静安寺店</string>
+	</dict>
+	<key>2</key>
+	<dict>
+		<key>name</key>
+		<string>Aura唉哇音乐学院店</string>
+		<key>addressCN</key>
+		<string>徐汇区汾阳路64弄4号，复兴中路1340弄对面</string>
+		<key>addressEN</key>
+		<string>No.4, 64 Fenyang lu, Xuhui, door of Fuxing lu.</string>
+		<key>detail</key>
+		<string>营业时间:10:00 - 23:00, 电话:34617159</string>
+	</dict>
+	<key>3</key>
+	<dict>
+		<key>name</key>
+		<string>Coolzey 酷芝静安体育中心店</string>
+		<key>addressCN</key>
+		<string>静安区陕西北路 670号，近武定路。</string>
+		<key>addressEN</key>
+		<string>670 Shanxi lu(N), Jin&apos;an, near Wuding lu.</string>
+		<key>detail</key>
+		<string>营业时间:8:00 - 23:00, 电话:62534718</string>
+	</dict>
+	<key>4</key>
+	<dict>
+		<key>name</key>
+		<string>Coolzey 酷芝华山路店</string>
+		<key>addressCN</key>
+		<string>长宁区华山路1589弄3号，近淮海中路。</string>
+		<key>addressEN</key>
+		<string>1589 Huashan lu, Changning, near Huaihai lu. </string>
+		<key>detail</key>
+		<string>营业时间:10:00 - 23:00, 电话:62807074</string>
+	</dict>
+</dict>
+</plist>

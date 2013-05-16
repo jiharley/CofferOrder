@@ -15,4 +15,6 @@
 @property (strong, nonatomic) DDMenuController *menuController;
 @property (strong, nonatomic) UIWindow *window;
 @property NSInteger selectedRowNum;
+@property NSString *categoryName;
+@property (strong, nonatomic) NSMutableArray *orderedList;
 @end

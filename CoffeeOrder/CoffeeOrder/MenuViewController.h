@@ -17,6 +17,8 @@
 
 @property (strong, nonatomic) NSArray *dataList;
 @property (strong, nonatomic) NSArray *imageList;
+@property (strong, nonatomic) NSArray *foodIdList;
+@property (strong, nonatomic) NSMutableArray *orderedIdList;
 
-- (void) loadDataWithCategoryID:(NSInteger) categoryID;
+-(void) loadDataWithCategoryName:(NSString *)categoryName;
 @end

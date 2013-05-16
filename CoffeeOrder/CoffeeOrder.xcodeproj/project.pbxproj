@@ -22,6 +22,30 @@
 		325490221735428B0072F724 /* 901.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3254901F1735428B0072F724 /* 901.jpg */; };
 		325490231735428B0072F724 /* 902.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 325490201735428B0072F724 /* 902.jpg */; };
 		325490241735428B0072F724 /* 903.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 325490211735428B0072F724 /* 903.jpg */; };
+		325490261737EF870072F724 /* categoryList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 325490251737EF870072F724 /* categoryList.plist */; };
+		32549029173A65340072F724 /* salad.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32549028173A65340072F724 /* salad.plist */; };
+		3254902B173A65620072F724 /* snack.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3254902A173A65620072F724 /* snack.plist */; };
+		3254902D173A65A90072F724 /* soup.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3254902C173A65A90072F724 /* soup.plist */; };
+		3254902F173A65B90072F724 /* wrap.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3254902E173A65B90072F724 /* wrap.plist */; };
+		32549031173A65D20072F724 /* sandwich.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32549030173A65D20072F724 /* sandwich.plist */; };
+		32549033173A65F70072F724 /* pasta.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32549032173A65F70072F724 /* pasta.plist */; };
+		32549035173A660C0072F724 /* pizza.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32549034173A660C0072F724 /* pizza.plist */; };
+		32549037173A66240072F724 /* dessert.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32549036173A66240072F724 /* dessert.plist */; };
+		32549039173A66300072F724 /* smoothies.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32549038173A66300072F724 /* smoothies.plist */; };
+		3254903B173A663D0072F724 /* milkshake.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3254903A173A663D0072F724 /* milkshake.plist */; };
+		3254903D173A66640072F724 /* fruitjuice.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3254903C173A66640072F724 /* fruitjuice.plist */; };
+		3254903F173A66760072F724 /* drinkandwine.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3254903E173A66760072F724 /* drinkandwine.plist */; };
+		32549041173A66B10072F724 /* selected.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32549040173A66B10072F724 /* selected.plist */; };
+		32549043173A69750072F724 /* 701.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 32549042173A69750072F724 /* 701.jpg */; };
+		3296FA7C17427884001D7890 /* inCart.png in Resources */ = {isa = PBXBuildFile; fileRef = 3296FA7B17427884001D7890 /* inCart.png */; };
+		3296FA7E174278C2001D7890 /* addCart.png in Resources */ = {isa = PBXBuildFile; fileRef = 3296FA7D174278C2001D7890 /* addCart.png */; };
+		3296FA831743CCE0001D7890 /* ShoppingCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3296FA821743CCE0001D7890 /* ShoppingCartCell.m */; };
+		3296FA851743CD19001D7890 /* ShoppingCartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3296FA841743CD19001D7890 /* ShoppingCartCell.xib */; };
+		3296FA8717449358001D7890 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 3296FA8617449358001D7890 /* plus.png */; };
+		3296FA891744935F001D7890 /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = 3296FA881744935F001D7890 /* minus.png */; };
+		3296FA8E1744F1FE001D7890 /* AboutUsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3296FA8C1744F1FE001D7890 /* AboutUsCell.xib */; };
+		3296FA8F1744F1FE001D7890 /* AboutUsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3296FA8D1744F1FE001D7890 /* AboutUsCell.m */; };
+		3296FA911744F232001D7890 /* aboutus.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3296FA901744F232001D7890 /* aboutus.plist */; };
 		32A715E61720254F002568A6 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A715D11720254F002568A6 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		32A715E71720254F002568A6 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A715D41720254F002568A6 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		32A715E81720254F002568A6 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A715D61720254F002568A6 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -76,10 +100,36 @@
 		325490171735117E0072F724 /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
 		325490181735117E0072F724 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
 		3254901A173517790072F724 /* MenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
-		3254901C173537960072F724 /* risotto.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = risotto.plist; sourceTree = "<group>"; };
+		3254901C173537960072F724 /* risotto.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = risotto.plist; path = CoffeeOrder/risotto.plist; sourceTree = "<group>"; };
 		3254901F1735428B0072F724 /* 901.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 901.jpg; sourceTree = "<group>"; };
 		325490201735428B0072F724 /* 902.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 902.jpg; sourceTree = "<group>"; };
 		325490211735428B0072F724 /* 903.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 903.jpg; sourceTree = "<group>"; };
+		325490251737EF870072F724 /* categoryList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = categoryList.plist; path = CoffeeOrder/categoryList.plist; sourceTree = "<group>"; };
+		32549028173A65340072F724 /* salad.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = salad.plist; sourceTree = "<group>"; };
+		3254902A173A65620072F724 /* snack.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = snack.plist; sourceTree = "<group>"; };
+		3254902C173A65A90072F724 /* soup.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = soup.plist; sourceTree = "<group>"; };
+		3254902E173A65B90072F724 /* wrap.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = wrap.plist; sourceTree = "<group>"; };
+		32549030173A65D20072F724 /* sandwich.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sandwich.plist; sourceTree = "<group>"; };
+		32549032173A65F70072F724 /* pasta.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pasta.plist; sourceTree = "<group>"; };
+		32549034173A660C0072F724 /* pizza.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pizza.plist; sourceTree = "<group>"; };
+		32549036173A66240072F724 /* dessert.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dessert.plist; sourceTree = "<group>"; };
+		32549038173A66300072F724 /* smoothies.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = smoothies.plist; sourceTree = "<group>"; };
+		3254903A173A663D0072F724 /* milkshake.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = milkshake.plist; sourceTree = "<group>"; };
+		3254903C173A66640072F724 /* fruitjuice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fruitjuice.plist; sourceTree = "<group>"; };
+		3254903E173A66760072F724 /* drinkandwine.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = drinkandwine.plist; sourceTree = "<group>"; };
+		32549040173A66B10072F724 /* selected.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = selected.plist; sourceTree = "<group>"; };
+		32549042173A69750072F724 /* 701.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 701.jpg; sourceTree = "<group>"; };
+		3296FA7B17427884001D7890 /* inCart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inCart.png; sourceTree = "<group>"; };
+		3296FA7D174278C2001D7890 /* addCart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addCart.png; sourceTree = "<group>"; };
+		3296FA811743CCE0001D7890 /* ShoppingCartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartCell.h; sourceTree = "<group>"; };
+		3296FA821743CCE0001D7890 /* ShoppingCartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartCell.m; sourceTree = "<group>"; };
+		3296FA841743CD19001D7890 /* ShoppingCartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoppingCartCell.xib; sourceTree = "<group>"; };
+		3296FA8617449358001D7890 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		3296FA881744935F001D7890 /* minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus.png; sourceTree = "<group>"; };
+		3296FA8B1744F1FE001D7890 /* AboutUsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsCell.h; sourceTree = "<group>"; };
+		3296FA8C1744F1FE001D7890 /* AboutUsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUsCell.xib; sourceTree = "<group>"; };
+		3296FA8D1744F1FE001D7890 /* AboutUsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsCell.m; sourceTree = "<group>"; };
+		3296FA901744F232001D7890 /* aboutus.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = aboutus.plist; sourceTree = "<group>"; };
 		32A715D01720254F002568A6 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		32A715D11720254F002568A6 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		32A715D21720254F002568A6 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -177,11 +227,82 @@
 		3254901E173542680072F724 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				32549042173A69750072F724 /* 701.jpg */,
 				3254901F1735428B0072F724 /* 901.jpg */,
 				325490201735428B0072F724 /* 902.jpg */,
 				325490211735428B0072F724 /* 903.jpg */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		32549027173A65060072F724 /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				3296FA901744F232001D7890 /* aboutus.plist */,
+				325490251737EF870072F724 /* categoryList.plist */,
+				32549040173A66B10072F724 /* selected.plist */,
+				32549028173A65340072F724 /* salad.plist */,
+				3254902C173A65A90072F724 /* soup.plist */,
+				32549034173A660C0072F724 /* pizza.plist */,
+				32549032173A65F70072F724 /* pasta.plist */,
+				32549030173A65D20072F724 /* sandwich.plist */,
+				3254901C173537960072F724 /* risotto.plist */,
+				3254902E173A65B90072F724 /* wrap.plist */,
+				3254902A173A65620072F724 /* snack.plist */,
+				32549036173A66240072F724 /* dessert.plist */,
+				32549038173A66300072F724 /* smoothies.plist */,
+				3254903A173A663D0072F724 /* milkshake.plist */,
+				3254903C173A66640072F724 /* fruitjuice.plist */,
+				3254903E173A66760072F724 /* drinkandwine.plist */,
+			);
+			name = Plist;
+			sourceTree = "<group>";
+		};
+		3296FA7F1743CC4F001D7890 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				32C750871711611400A99E9C /* MenuViewController.h */,
+				32C750881711611400A99E9C /* MenuViewController.m */,
+				325490171735117E0072F724 /* MenuCell.h */,
+				325490181735117E0072F724 /* MenuCell.m */,
+				3254901A173517790072F724 /* MenuCell.xib */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		3296FA801743CC76001D7890 /* ShopCart */ = {
+			isa = PBXGroup;
+			children = (
+				32C7508E1711611400A99E9C /* ShoppingCartViewController.h */,
+				32C7508F1711611400A99E9C /* ShoppingCartViewController.m */,
+				3296FA811743CCE0001D7890 /* ShoppingCartCell.h */,
+				3296FA821743CCE0001D7890 /* ShoppingCartCell.m */,
+				3296FA841743CD19001D7890 /* ShoppingCartCell.xib */,
+			);
+			name = ShopCart;
+			sourceTree = "<group>";
+		};
+		3296FA8A1744F1C9001D7890 /* AboutUs */ = {
+			isa = PBXGroup;
+			children = (
+				3296FA8B1744F1FE001D7890 /* AboutUsCell.h */,
+				3296FA8C1744F1FE001D7890 /* AboutUsCell.xib */,
+				3296FA8D1744F1FE001D7890 /* AboutUsCell.m */,
+				32C7509E1711649700A99E9C /* AboutUsViewController.h */,
+				32C7509F1711649700A99E9C /* AboutUsViewController.m */,
+			);
+			name = AboutUs;
+			sourceTree = "<group>";
+		};
+		3296FA921744F31B001D7890 /* SideView */ = {
+			isa = PBXGroup;
+			children = (
+				32C849AD17125D610049204B /* SideViewController.h */,
+				32C849AE17125D610049204B /* SideViewController.m */,
+				32C8494D171182FA0049204B /* DDMenuController.h */,
+				32C8494E171182FB0049204B /* DDMenuController.m */,
+			);
+			name = SideView;
 			sourceTree = "<group>";
 		};
 		32A715CF1720254F002568A6 /* ASIHTTPRequest */ = {
@@ -218,6 +339,7 @@
 			children = (
 				32A715CF1720254F002568A6 /* ASIHTTPRequest */,
 				32C750721711611400A99E9C /* CoffeeOrder */,
+				32549027173A65060072F724 /* Plist */,
 				3254901E173542680072F724 /* Images */,
 				32C849B2171264DD0049204B /* Views */,
 				32C7509A1711612B00A99E9C /* Resources */,
@@ -253,25 +375,15 @@
 		32C750721711611400A99E9C /* CoffeeOrder */ = {
 			isa = PBXGroup;
 			children = (
-				325413EC172D14CB00446927 /* MyAccount */,
 				32C7507B1711611400A99E9C /* TJAppDelegate.h */,
 				32C7507C1711611400A99E9C /* TJAppDelegate.m */,
-				32C750871711611400A99E9C /* MenuViewController.h */,
-				32C750881711611400A99E9C /* MenuViewController.m */,
-				32C7508E1711611400A99E9C /* ShoppingCartViewController.h */,
-				32C7508F1711611400A99E9C /* ShoppingCartViewController.m */,
-				32C7509E1711649700A99E9C /* AboutUsViewController.h */,
-				32C7509F1711649700A99E9C /* AboutUsViewController.m */,
-				32C849AD17125D610049204B /* SideViewController.h */,
-				32C849AE17125D610049204B /* SideViewController.m */,
-				32C8494D171182FA0049204B /* DDMenuController.h */,
-				32C8494E171182FB0049204B /* DDMenuController.m */,
+				3296FA7F1743CC4F001D7890 /* Menu */,
+				3296FA801743CC76001D7890 /* ShopCart */,
+				325413EC172D14CB00446927 /* MyAccount */,
+				3296FA8A1744F1C9001D7890 /* AboutUs */,
+				3296FA921744F31B001D7890 /* SideView */,
 				325413ED172D1F1D00446927 /* Constants.h */,
 				325413EE172D1F1D00446927 /* Constants.m */,
-				325490171735117E0072F724 /* MenuCell.h */,
-				325490181735117E0072F724 /* MenuCell.m */,
-				3254901A173517790072F724 /* MenuCell.xib */,
-				3254901C173537960072F724 /* risotto.plist */,
 			);
 			path = CoffeeOrder;
 			sourceTree = "<group>";
@@ -294,7 +406,11 @@
 		32C7509A1711612B00A99E9C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3296FA881744935F001D7890 /* minus.png */,
+				3296FA8617449358001D7890 /* plus.png */,
+				3296FA7B17427884001D7890 /* inCart.png */,
 				32549013173509F50072F724 /* tabBarBg@2x.png */,
+				3296FA7D174278C2001D7890 /* addCart.png */,
 				3254901517350A2F0072F724 /* tabBarBg.png */,
 				3254900F173505890072F724 /* navigationBg@2x.png */,
 				32549011173507470072F724 /* navigationBg.png */,
@@ -388,6 +504,28 @@
 				325490221735428B0072F724 /* 901.jpg in Resources */,
 				325490231735428B0072F724 /* 902.jpg in Resources */,
 				325490241735428B0072F724 /* 903.jpg in Resources */,
+				325490261737EF870072F724 /* categoryList.plist in Resources */,
+				32549029173A65340072F724 /* salad.plist in Resources */,
+				3254902B173A65620072F724 /* snack.plist in Resources */,
+				3254902D173A65A90072F724 /* soup.plist in Resources */,
+				3254902F173A65B90072F724 /* wrap.plist in Resources */,
+				32549031173A65D20072F724 /* sandwich.plist in Resources */,
+				32549033173A65F70072F724 /* pasta.plist in Resources */,
+				32549035173A660C0072F724 /* pizza.plist in Resources */,
+				32549037173A66240072F724 /* dessert.plist in Resources */,
+				32549039173A66300072F724 /* smoothies.plist in Resources */,
+				3254903B173A663D0072F724 /* milkshake.plist in Resources */,
+				3254903D173A66640072F724 /* fruitjuice.plist in Resources */,
+				3254903F173A66760072F724 /* drinkandwine.plist in Resources */,
+				32549041173A66B10072F724 /* selected.plist in Resources */,
+				32549043173A69750072F724 /* 701.jpg in Resources */,
+				3296FA7C17427884001D7890 /* inCart.png in Resources */,
+				3296FA7E174278C2001D7890 /* addCart.png in Resources */,
+				3296FA851743CD19001D7890 /* ShoppingCartCell.xib in Resources */,
+				3296FA8717449358001D7890 /* plus.png in Resources */,
+				3296FA891744935F001D7890 /* minus.png in Resources */,
+				3296FA8E1744F1FE001D7890 /* AboutUsCell.xib in Resources */,
+				3296FA911744F232001D7890 /* aboutus.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +558,8 @@
 				325413F2173144B400446927 /* MD5Addition.m in Sources */,
 				3254900C17336E200072F724 /* RegisterViewController.m in Sources */,
 				325490191735117E0072F724 /* MenuCell.m in Sources */,
+				3296FA831743CCE0001D7890 /* ShoppingCartCell.m in Sources */,
+				3296FA8F1744F1FE001D7890 /* AboutUsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

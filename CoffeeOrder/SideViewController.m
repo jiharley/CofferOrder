@@ -18,6 +18,7 @@
 @end
 
 @implementation SideViewController
+@synthesize categoryList;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,7 +33,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSURL *plistURL = [bundle URLForResource:@"categoryList" withExtension:@"plist"];
+    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfURL:plistURL];
     
+    NSMutableArray *tmpDataArray = [[NSMutableArray alloc] init];
+    for (int i=0; i<[dictionary count]; i++) {
+        NSString *key = [[NSString alloc] initWithFormat:@"%i", i+1];
+        NSDictionary *tmpDic = [dictionary objectForKey:key];
+        [tmpDataArray addObject:tmpDic];
+    }
+    self.categoryList = [tmpDataArray copy];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,7 +60,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return [categoryList count];
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -60,11 +71,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    /*
-     * Content in this cell should be inset the size of kMenuOverlayWidth
-     */
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"Cell %i", indexPath.row];
+    NSUInteger row = [indexPath row];
+    cell.textLabel.text = [[categoryList objectAtIndex:row] objectForKey:@"name"];
     
     return cell;
     
@@ -115,8 +123,11 @@
     tabController.viewControllers = [NSArray arrayWithObjects:navController0, navController1, navController2, navController3, nil];
     
     [menuController setRootController:tabController animated:YES];
+    
+    NSUInteger row = [indexPath row];
     TJAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     appDelegate.selectedRowNum = indexPath.row;
+    appDelegate.categoryName = [[categoryList objectAtIndex:row] objectForKey:@"content"];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
