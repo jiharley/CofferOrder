@@ -10,7 +10,7 @@
 #import "ASIFormDataRequest.h"
 #import "MD5Addition.h"
 
-@interface RegisterViewController : UIViewController <ASIHTTPRequestDelegate, UITextFieldDelegate>
+@interface RegisterViewController : UIViewController <ASIHTTPRequestDelegate, UITextFieldDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *confirmBtn;
 - (IBAction)confirmRegister:(id)sender;

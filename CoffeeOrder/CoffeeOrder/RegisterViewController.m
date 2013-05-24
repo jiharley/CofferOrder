@@ -9,6 +9,12 @@
 #import "RegisterViewController.h"
 #import "Constants.h"
 
+#define usernameTag 1
+#define userPhoneTag 2
+#define userEmailTag 3
+#define passwordTag 4
+#define confirmPasswdTag 5
+
 @interface RegisterViewController ()
 
 @end
@@ -34,12 +40,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    passwdText.secureTextEntry = YES;
-    confirmPasswdText.secureTextEntry = YES;
-    passwdText.tag = 1;
-    passwdText.delegate = self;
-    confirmPasswdText.tag = 2;
-    confirmPasswdText.delegate = self;
+//    passwdText.secureTextEntry = YES;
+//    confirmPasswdText.secureTextEntry = YES;
+    usernameText.tag = usernameTag;
+    phoneNumberText.tag = userPhoneTag;
+    emailText.tag = userEmailTag;
+    passwdText.tag = passwordTag;
+    confirmPasswdText.tag = confirmPasswdTag;
 }
 
 - (IBAction)confirmRegister:(id)sender {
@@ -52,10 +59,10 @@
     if ([self isFill:usernameText.text and:phoneNumberText.text] && [self isValidateEmail:emailText.text] && [self isValidatePasswd:passwdText.text confirmPasswd:confirmPasswdText.text]) {
         errorMsg.text = @"";
         
-        NSString *urlString = [NSString stringWithFormat:@"%@/cafeOrder/register.php",serverURL];
+        NSString *urlString = [NSString stringWithFormat:@"%@/coolzey/register.php",serverURL];
         ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:urlString]];
         
-        [request setPostValue:usernameText.text forKey:@"username"];
+        [request setPostValue:usernameText.text forKey:@"userName"];
         [request setPostValue:phoneNumberText.text forKey:@"phoneNumber"];
         [request setPostValue:emailText.text forKey:@"email"];
         [request setPostValue:[passwdText.text stringFromMD5] forKey:@"password"];
@@ -72,19 +79,22 @@
 
 - (void) requestFinished:(ASIHTTPRequest *)request
 {
-    NSLog(@"%@", request.responseString);
-    NSString *responseStr = request.responseString;
-    if ([responseStr isEqual:@"register success"]) {
+    NSLog(@"%@ %@", request.responseString, request.responseHeaders);
+    NSString *statusStr = [request.responseHeaders objectForKey:@"Status"];
+    if ([statusStr isEqual:@"register success"]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setValue:phoneNumberText.text forKey:@"phoneNumber"];
-        [defaults setValue:usernameText.text forKey:@"username"];
+        [defaults setValue:usernameText.text forKey:@"userName"];
         [defaults setValue:emailText.text forKey:@"email"];
         //跳转至登录界面
-        [NSThread sleepForTimeInterval:1];
-        [self.navigationController popViewControllerAnimated:YES];
+        UIAlertView *registerSuccessAv = [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        registerSuccessAv.tag = 1;
+        [registerSuccessAv show];
+//        [NSThread sleepForTimeInterval:1];
+//        [self.navigationController popViewControllerAnimated:YES];
 
     }
-    else if ([responseStr isEqual:@"user exists"]) {
+    else if ([statusStr isEqual:@"user exists"]) {
          errorMsg.text = @"该号码已注册";
     }
     else {
@@ -94,12 +104,53 @@
 
 - (void) requestFailed:(ASIHTTPRequest *)request
 {
-    errorMsg.text = @"注册失败";
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"连接超时，网络不太给力哦~~~" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [av show];
+    //errorMsg.text = @"注册失败";
+}
+#pragma alertview delegate
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 1) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+#pragma textfield delegate function
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    switch (textField.tag) {
+        case usernameTag:
+            [phoneNumberText becomeFirstResponder];break;
+        case userPhoneTag:
+            [emailText becomeFirstResponder];break;
+        case userEmailTag:
+            [passwdText becomeFirstResponder];break;
+        case passwordTag:
+            [confirmPasswdText becomeFirstResponder];break;
+        case confirmPasswdTag:
+            [self confirmRegister:nil];break;
+        default:
+            break;
+    }
+    return true;
 }
 //解决虚拟键盘挡住输入框的问题
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch=[[event allTouches] anyObject];
+    
+    if (touch.tapCount >=1) {
+        [usernameText resignFirstResponder];
+        [phoneNumberText resignFirstResponder];
+        [emailText resignFirstResponder];
+        [passwdText resignFirstResponder];
+        [confirmPasswdText resignFirstResponder];
+    }
+}
+
 - (void) textFieldDidBeginEditing:(UITextField *)textField
 {
-    if (textField.tag == 1 || textField.tag == 2) {
+    if ((textField.tag == passwordTag) || (textField.tag == confirmPasswdTag)) {
         NSTimeInterval animationDuration = 1.0f;
         CGRect frame = self.view.frame;
         frame.origin.y -=50;
@@ -114,7 +165,7 @@
 
 - (void) textFieldDidEndEditing:(UITextField *)textField
 {
-    if (textField.tag == 1 || textField.tag == 2) {
+    if (textField.tag == passwordTag || textField.tag == confirmPasswdTag) {
         
         NSTimeInterval animationDuration = 1.0f;
         CGRect frame = self.view.frame;

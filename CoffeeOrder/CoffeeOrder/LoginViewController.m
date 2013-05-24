@@ -38,31 +38,56 @@
 
 - (void) requestFinished:(ASIHTTPRequest *)request
 {
-    NSLog(@"%@", request.responseString);
+    NSLog(@"%@ %@", request.responseString, request.responseHeaders);
+    NSString *statusStr = [request.responseHeaders objectForKey:@"Status"];
     NSString *responseStr = request.responseString;
-    if ([responseStr isEqual: @"login success"]) {
-        
+    if ([statusStr isEqual: @"login success"]) {
+        //对response字符进行解码
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *filename = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"address.plist"];
+        responseStr = [responseStr substringToIndex:responseStr.length - 1];
+        NSArray *responseArray = [responseStr componentsSeparatedByString:@";"];
+        NSArray *addressArray = [[NSArray alloc] init];
+        if ([responseArray count] == 3) {
+            NSString *responseAddress = (NSString *)[responseArray objectAtIndex:2];
+            addressArray = [responseAddress componentsSeparatedByString:@"|"];
+        }
+        if ([addressArray count]) {
+            [addressArray writeToFile:filename atomically:YES];
+        }
+        [defaults setValue:[responseArray objectAtIndex:0] forKey:@"userId"];
+        [defaults setValue:[responseArray objectAtIndex:1] forKey:@"userName"];
         [defaults setValue:phoneNumberTextField.text forKey:@"phoneNumber"];
         [defaults setValue:passwordMD5 forKey:@"password"];
+        
         [self.navigationController popToRootViewControllerAnimated:YES];
         //self.view = nil;
     }
-    else if ([responseStr isEqual:@"user does not exist"]){
+    else if ([statusStr isEqual:@"user does not exist"]){
         //该手机号不存在
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"该手机号未注册" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [av show];
+
     }
-    else if ([responseStr isEqual:@"wrong password"]){
+    else if ([statusStr isEqual:@"wrong password"]){
         //密码错误
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"密码错误" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [av show];
+
     }
     else {
         //未知错误
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"登录失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [av show];
     }
 }
 
 - (void) requestFailed:(ASIHTTPRequest *)request
 {
     NSLog(@"failed");
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"连接超时，网络不太给力哦~~~" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [av show];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -77,7 +102,7 @@
 
 - (IBAction)login:(id)sender {
     if ([self isFill:passwordTextField.text and:phoneNumberTextField.text]) {
-        NSString *urlString = [NSString stringWithFormat:@"%@/cafeOrder/login.php",serverURL];
+        NSString *urlString = [NSString stringWithFormat:@"%@/coolzey/login.php",serverURL];
         ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:urlString]];
         passwordMD5 = [passwordTextField.text stringFromMD5];
         [request setPostValue:phoneNumberTextField.text forKey:@"phoneNumber"];
@@ -106,6 +131,17 @@
 
     else {
         return TRUE;
+    }
+}
+
+//释放键盘
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch=[[event allTouches] anyObject];
+    
+    if (touch.tapCount >=1) {
+        [phoneNumberTextField resignFirstResponder];
+        [passwordTextField resignFirstResponder];
     }
 }
 

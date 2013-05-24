@@ -19,6 +19,7 @@
 @synthesize foodImageList;
 @synthesize priceSum;
 @synthesize priceSumLabel;
+@synthesize chectoutBtn;
 
 - (void)viewDidLoad
 {
@@ -37,13 +38,19 @@
     shoppingCartTableView.delegate = self;
 }
 
-- (void) viewDidAppear:(BOOL)animated
+- (void) viewWillAppear:(BOOL)animated
 {
     [self initData];
     [shoppingCartTableView reloadData];
     self.priceSumLabel.text = [NSString stringWithFormat:@"%d", priceSum];
+    
+    if ([shoppingCartDataArray count] == 0) {
+        chectoutBtn.enabled = NO;
+    } else {
+        chectoutBtn.enabled = YES;
+    }
 }
-
+//tableview cell中 减号按钮的响应函数
 - (void) plusAction:(id) sender
 {
     TJAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -62,7 +69,7 @@
     [self.shoppingCartDataArray replaceObjectAtIndex:theRowNumber withObject:theFoodDic];
     appDelegate.orderedList = [self.shoppingCartDataArray mutableCopy];
 }
-
+//tableview cell中 加号按钮的响应函数
 - (void) minusAction:(id) sender
 {
     TJAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -73,6 +80,7 @@
     NSMutableDictionary *theFoodDic = [[NSMutableDictionary alloc]initWithDictionary:[self.shoppingCartDataArray objectAtIndex:theRowNumber]];
     
     NSInteger thefoodNum = [[theFoodDic objectForKey:@"number"] integerValue] - 1;
+    //如果食品数量为0的话，不修改shoppingCartDataArray的数据
     if (thefoodNum < 0) {
         return;
     }
@@ -89,6 +97,18 @@
     
 
 }
+//结算按钮的响应函数
+- (IBAction)goToCheckout:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults valueForKey:@"phoneNumber"] == NULL || [defaults valueForKey:@"password"] == NULL) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"用户未登录，请先切换至'我的账户'登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [av show];
+    }
+    else {
+        [self performSegueWithIdentifier:@"checkout" sender:self];
+    }
+}
+
 //初始化数据，包括已点菜品信息，图片，以及总价格
 - (void) initData
 {
@@ -109,11 +129,23 @@
     }
     self.foodImageList = [tmpImageArray copy];
 }
+#pragma mark alertview delegate and function
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [self.tabBarController setSelectedIndex:2];
+    }
+}
 #pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
-    NSUInteger number = [shoppingCartDataArray count];
-//    return [shoppingCartDataArray count];
-    return number;
+//    NSUInteger number = [shoppingCartDataArray count];
+    return [shoppingCartDataArray count];
+//    return number;
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -167,6 +199,7 @@
 - (void)viewDidUnload {
     [self setShoppingCartTableView:nil];
     [self setPriceSumLabel:nil];
+    [self setChectoutBtn:nil];
     [super viewDidUnload];
 }
 @end

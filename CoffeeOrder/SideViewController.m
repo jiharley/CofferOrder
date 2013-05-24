@@ -92,6 +92,7 @@
     if ([[menuController getRootViewController] isKindOfClass:[UITabBarController class]]) {
          tabController = (UITabBarController*)[menuController getRootViewController];
     }
+    tabController.delegate = self;
 //    menuController = nil;
 //    menuController = [[DDMenuController alloc] init];
     MenuViewController *controller0 = [[MenuViewController alloc] init];
@@ -130,5 +131,16 @@
     appDelegate.categoryName = [[categoryList objectAtIndex:row] objectForKey:@"content"];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
+#pragma tabbarcontroller delegate
+-(BOOL) tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    UINavigationController *nav = nil;
+    if ([viewController isKindOfClass:[UINavigationController class]]) {
+        nav = (UINavigationController *) viewController;
+    }
+    if (([nav.viewControllers count]>1)&& tabBarController.selectedViewController == viewController) {
+        return NO;
+    }
+    return YES;
+}
 @end

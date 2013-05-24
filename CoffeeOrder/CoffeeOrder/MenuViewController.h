@@ -12,8 +12,8 @@
 @interface MenuViewController : UIViewController<UITableViewDelegate, UITableViewDelegate>
 {
 }
-@property (strong, nonatomic) UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UITableView *menuListTableView;
+//@property (strong, nonatomic) UITableView *tableView;
+@property (retain, nonatomic) UITableView *menuListTableView;
 
 @property (strong, nonatomic) NSArray *dataList;
 @property (strong, nonatomic) NSArray *imageList;

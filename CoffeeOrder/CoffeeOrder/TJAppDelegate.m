@@ -22,6 +22,7 @@
     categoryName = @"risotto";
     orderedList = [[NSMutableArray alloc] init];
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    
     // Override point for customization after application launch.
     
     UITabBar *tabBar = [tabBarController tabBar];
@@ -45,6 +46,8 @@
     
     SideViewController *sideController = [[SideViewController alloc] init];
     rootController.leftViewController = sideController;
+    
+    tabBarController.delegate = sideController;
     
     self.window.rootViewController = rootController;
     self.window.backgroundColor = [UIColor whiteColor];

@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  CoffeeOrder
+
+  Created by tj  on 13-5-24.
+  Copyright (c) 2013年 tj . All rights reserved.
+*/
+"menu" = "menu";
+"shoppingCart" = "shopping cart";
+"myAccount" = "my account";
+"aboutUs" = "about us";

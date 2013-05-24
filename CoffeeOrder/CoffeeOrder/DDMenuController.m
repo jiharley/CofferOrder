@@ -421,6 +421,11 @@
     }
     
     if (_menuFlags.canShowLeft) {
+//        UIButton *sideBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [sideBtn setBackgroundImage:[UIImage imageNamed:@"navMenu.png"] forState:UIControlStateNormal];
+//        [sideBtn addTarget:self action:@selector(showLeft:) forControlEvents:UIControlEventTouchUpInside];
+//        sideBtn.frame = CGRectMake(50, 0, 32, 32);
+//        UIBarButtonItem *barBtnItem = [[UIBarButtonItem alloc] initWithCustomView:sideBtn];
         UIBarButtonItem *button = [[barButtonItemClass alloc] initWithImage:[UIImage imageNamed:@"nav_menu_icon.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showLeft:)];
         UIViewController *firstTopController = [topControllersArray objectAtIndex:0];
         firstTopController.navigationItem.leftBarButtonItem = button;

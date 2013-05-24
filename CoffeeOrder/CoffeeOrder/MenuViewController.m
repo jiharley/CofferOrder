@@ -9,14 +9,13 @@
 #import "MenuViewController.h"
 #import "TJAppDelegate.h"
 #import "MenuCell.h"
-
+#import "GGFullscreenImageViewController.h"
 @interface MenuViewController ()
 
 @end
 
 @implementation MenuViewController
 @synthesize menuListTableView;
-@synthesize tableView = _tableView;
 @synthesize dataList;
 @synthesize imageList;
 @synthesize foodIdList;
@@ -36,26 +35,32 @@
         [self.navigationController.navigationBar insertSubview:[[UIImageView alloc] initWithImage:backgroundImage]atIndex:1];
     }
    
-    if (!_tableView) {
-        UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-        tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        tableView.delegate = (id<UITableViewDelegate>)self;
-        tableView.dataSource = (id<UITableViewDataSource>)self;
-        [self.view addSubview:tableView];
-        self.menuListTableView = tableView;
-    }
+//    if (!tableView) {
+        menuListTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        menuListTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        menuListTableView.delegate = (id<UITableViewDelegate>)self;
+        menuListTableView.dataSource = (id<UITableViewDataSource>)self;
+        [self.view addSubview:menuListTableView];
+        //self.menuListTableView = tableView;
+//    }
     
     TJAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [self loadDataWithCategoryName:appDelegate.categoryName];//载入数据
     //构建已经加入购物车的菜品id的数组
     orderedIdList = [[NSMutableArray alloc] init];
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [orderedIdList removeAllObjects];
+    TJAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSArray *tmpOrderedDataArray = [appDelegate.orderedList copy];
     for (int i = 0; i < [tmpOrderedDataArray count]; i++) {
         NSDictionary *tmpDictionary = [tmpOrderedDataArray objectAtIndex:i];
         [orderedIdList addObject:[tmpDictionary objectForKey:@"id"]];
-    }    
+    }
+    [menuListTableView reloadData];
 }
-
 //-(void) getIdArray:(NSMutableArray *) orderedDataArray{
 //    
 //}
@@ -97,19 +102,15 @@
     NSString *selectedFoodId = [selectedDataDic objectForKey:@"id"];
     NSUInteger selectedFoodIdIndex = [orderedIdList indexOfObject:selectedFoodId];
     if ([orderedIdList containsObject:selectedFoodId]) { //已在购物车中，从购物车中删除
-        [selectedBtn setBackgroundImage:[UIImage imageNamed:@"addCart.png"] forState:UIControlStateNormal];
+        [selectedBtn setBackgroundImage:[UIImage imageNamed:@"addCart"] forState:UIControlStateNormal];
         
         [appDelegate.orderedList removeObjectAtIndex:selectedFoodIdIndex];
         
         //从idList中删除选中食物的id
         [orderedIdList removeObjectAtIndex:selectedFoodIdIndex];
-//        NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-//        [tempArray addObjectsFromArray:[self.orderedIdList copy]];
-//        [tempArray removeObjectAtIndex:selectedFoodIdIndex];
-//        self.orderedIdList = [tempArray copy];
     }
     else{  //未在购物车中，加入购物车
-        [selectedBtn setBackgroundImage:[UIImage imageNamed:@"inCart.png"] forState:UIControlStateNormal];
+        [selectedBtn setBackgroundImage:[UIImage imageNamed:@"inCart"] forState:UIControlStateNormal];
         
         NSMutableDictionary *tempSelectedDic = [[NSMutableDictionary alloc] init];
         [tempSelectedDic setObject:[selectedDataDic objectForKey:@"id"] forKey:@"id"];
@@ -120,11 +121,23 @@
         
         //添加选中食物的id到orderedIdList中
         [orderedIdList addObject:selectedFoodId];
-//        NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-//        [tempArray addObjectsFromArray:[self.orderedIdList copy]];
-//        [tempArray addObject:selectedFoodId];
-//        self.orderedIdList = [tempArray copy];
     }
+}
+
+- (void) zoomImage:(UITapGestureRecognizer *) sender
+{
+    UIView *theView = sender.self.view;
+//    NSUInteger theRow = theView.tag;
+////    UIView *screenView = [[UIView alloc] initWithFrame:self.view.bounds];
+//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+//    imageView.image = [imageList objectAtIndex:theRow];
+//    [self.view addSubview:imageView];
+//    [self.view bringSubviewToFront:imageView];
+    theView.contentMode = UIViewContentModeScaleAspectFit;
+    GGFullscreenImageViewController *vc = [[GGFullscreenImageViewController alloc] init];
+    vc.liftedImageView = (UIImageView*) theView;
+    [self presentViewController:vc animated:YES completion:nil];
+
 }
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
@@ -147,25 +160,31 @@
     cell.foodMaterialLabel.text = [rowData objectForKey:@"material"];
     cell.foodImageView.image = [imageList objectAtIndex:row];
     
+    
+    //添加imageView点击事件
+    cell.foodImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(zoomImage:)];
+    [cell.foodImageView addGestureRecognizer:singleTap];
+    cell.foodImageView.tag = row;
+    
     //设置添加购物车按钮响应事件并对按钮绑定tag
     [cell.addCartBtn addTarget:self action:@selector(addToCart:) forControlEvents:UIControlEventTouchUpInside];
     cell.addCartBtn.tag = row;
     if ([orderedIdList containsObject:[rowData objectForKey:@"id"]]) {
-        [cell.addCartBtn setBackgroundImage:[UIImage imageNamed:@"inCart.png"] forState:UIControlStateNormal];
+        [cell.addCartBtn setBackgroundImage:[UIImage imageNamed:@"inCart"] forState:UIControlStateNormal];
     }
     else {
-        [cell.addCartBtn setBackgroundImage:[UIImage imageNamed:@"addCart.png"] forState:UIControlStateNormal];
+        [cell.addCartBtn setBackgroundImage:[UIImage imageNamed:@"addCart"] forState:UIControlStateNormal];
     }
     return cell;
 }
 
-
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80.0;
+    return 64.0;
 }
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 - (void)didReceiveMemoryWarning
 {

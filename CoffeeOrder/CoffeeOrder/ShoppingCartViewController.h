@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShoppingCartViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@interface ShoppingCartViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *shoppingCartDataArray;
 @property (strong, nonatomic) IBOutlet UITableView *shoppingCartTableView;
 @property (strong, nonatomic) NSArray *foodImageList;
 @property (strong, nonatomic) IBOutlet UILabel *priceSumLabel;
+@property (strong, nonatomic) IBOutlet UIButton *chectoutBtn;
+- (IBAction)goToCheckout:(id)sender;
 @property NSUInteger priceSum;
 @end

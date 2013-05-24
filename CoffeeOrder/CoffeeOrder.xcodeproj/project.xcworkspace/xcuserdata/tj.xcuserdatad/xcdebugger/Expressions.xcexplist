@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[RegisterViewController confirmRegister:]:RegisterViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[UserAccountViewController alertView:clickedButtonAtIndex:]:UserAccountViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[UserAccountViewController requestFinished:]:UserAccountViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "request.responseHeaders">
+            </PersistentString>
+            <PersistentString
+               value = "userAddressArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[MenuViewController loadDataWithCategoryName:]:MenuViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CheckOutViewController requestFinished:]:CheckOutViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[LoginViewController requestFinished:]:LoginViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[UserAccountViewController tableView:didSelectRowAtIndexPath:]:UserAccountViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "selectedAddressArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

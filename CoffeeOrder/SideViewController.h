@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 //@protocol DDMenuDelegate;
-@interface SideViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SideViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITabBarControllerDelegate>
 {
 //    id<DDMenuDelegate> delegate;
 }
