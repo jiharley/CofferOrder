@@ -34,7 +34,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     NSBundle *bundle = [NSBundle mainBundle];
-    NSURL *plistURL = [bundle URLForResource:@"categoryList" withExtension:@"plist"];
+    NSString *deviceLang = [[[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"] objectAtIndex:0];
+    NSURL *plistURL = [[NSURL alloc] init];
+    if ([deviceLang isEqual:@"zh-Hans"] || [deviceLang isEqual:@"zh-Hant"])
+    {
+        plistURL = [bundle URLForResource:@"categoryList" withExtension:@"plist"];
+    }
+    else {
+        plistURL = [bundle URLForResource:@"categoryList_en" withExtension:@"plist"];
+    }
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfURL:plistURL];
     
     NSMutableArray *tmpDataArray = [[NSMutableArray alloc] init];
@@ -79,7 +87,7 @@
 }
 
 - (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"菜品类别";
+    return NSLocalizedString(@"category list", nil);
 }
 
 #pragma mark - UITableViewDelegate

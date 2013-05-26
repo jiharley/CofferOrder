@@ -100,7 +100,7 @@
     
 }
 - (IBAction)logOut:(id)sender {
-    UIAlertView *logoutAv = [[UIAlertView alloc]initWithTitle:@"提示" message:@"确定要退出吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    UIAlertView *logoutAv = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"prompt", nil) message:NSLocalizedString(@"quit confirm", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil) otherButtonTitles:NSLocalizedString(@"confirm", nil), nil];
     logoutAv.tag = logoutAlert;
     [logoutAv show];
     
@@ -137,19 +137,19 @@
 }
 - (IBAction)addAddress:(id)sender {
     
-    UIAlertView *addAddressAv = [[UIAlertView alloc]initWithTitle:@"添加地址" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"添加", nil];
+    UIAlertView *addAddressAv = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"add address", nil) message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil) otherButtonTitles:NSLocalizedString(@"add", nil), nil];
     addAddressAv.tag = addAddressView;
     addAddressAv.alertViewStyle = UIAlertViewStylePlainTextInput;
     [addAddressAv show];
 }
 //编辑，删除用户送餐地址
 - (IBAction)editBtnPressed:(id)sender {
-    if ([editAddressBtn.titleLabel.text isEqual: @"编辑"]) {
+    if ([editAddressBtn.titleLabel.text isEqual: NSLocalizedString(@"edit", nil)]) {
         [userAddressTableView setEditing:YES animated:YES];
-        [editAddressBtn setTitle:@"删除" forState:UIControlStateNormal];
+        [editAddressBtn setTitle:NSLocalizedString(@"delete", nil) forState:UIControlStateNormal];
     }
     else {
-        [editAddressBtn setTitle:@"编辑" forState:UIControlStateNormal];
+        [editAddressBtn setTitle:NSLocalizedString(@"edit", nil) forState:UIControlStateNormal];
         [userAddressTableView setEditing:NO animated:YES];
         if([selectedAddressArray count] > 0)
         {
@@ -173,7 +173,7 @@
                 [processView removeFromSuperview];
                 processView = nil;
             }
-            processView = [[AddressProcessView alloc] initWithMessage:@"正在删除..."];
+            processView = [[AddressProcessView alloc] initWithMessage:NSLocalizedString(@"deleting", nil)];
             [self.view addSubview:processView];
         }
     }
@@ -197,10 +197,10 @@
             [self loadUserAddress];
             [self.userAddressTableView reloadData];
             
-            [processView onlyShowMsg:@"添加成功！"];
+            [processView onlyShowMsg:NSLocalizedString(@"add success", nil)];
         }
         else {
-            [processView onlyShowMsg:@"地址添加失败！"];
+            [processView onlyShowMsg:NSLocalizedString(@"add failed", nil)];
         }
     }
     if (request.tag == deleteAddressRequestTag) {
@@ -223,11 +223,11 @@
             [self loadUserAddress];
             [self.userAddressTableView reloadData];
             
-            [processView onlyShowMsg:@"删除成功！"];
+            [processView onlyShowMsg:NSLocalizedString(@"delete success", nil)];
             [self.selectedAddressArray removeAllObjects];
         }
         else {
-            [processView onlyShowMsg:@"地址删除失败！"];
+            [processView onlyShowMsg:NSLocalizedString(@"delete failed", nil)];
             [self.selectedAddressArray removeAllObjects];
         }
     }
@@ -235,11 +235,11 @@
 -(void) requestFailed:(ASIHTTPRequest *)request
 {
     if (request.tag == addAddressRequestTag) {
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"连接超时，地址添加失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil,nil];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"prompt", nil) message:NSLocalizedString(@"add address request timeout", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"confirm", nil) otherButtonTitles:nil,nil];
         [av show];
     }
     if (request.tag == deleteAddressRequestTag) {
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"连接超时，地址删除失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil,nil];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"prompt", nil) message:NSLocalizedString(@"delete address request timeout", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"confirm", nil) otherButtonTitles:nil,nil];
         [av show];
         [self.selectedAddressArray removeAllObjects];
     }
@@ -295,7 +295,7 @@
                         [processView removeFromSuperview];
                         processView = nil;
                     }
-                     processView = [[AddressProcessView alloc] initWithMessage:@"正在添加..."];
+                     processView = [[AddressProcessView alloc] initWithMessage:NSLocalizedString(@"adding", nil)];
                     [self.view addSubview:processView];
                 }
                 else {
@@ -320,7 +320,7 @@
         
         NSString *trimedCharString = [str stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@";|"]];
         if (trimedCharString.length < str.length) {
-            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"不能包含非法字符" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"prompt", nil) message:NSLocalizedString(@"contain invalid character", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"confirm", nil) otherButtonTitles:nil, nil];
             [av show];
             return false;
         }

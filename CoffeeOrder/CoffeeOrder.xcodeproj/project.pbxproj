@@ -10,7 +10,6 @@
 		321EA1E2174BB640006873B1 /* AddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 321EA1E1174BB640006873B1 /* AddressCell.m */; };
 		321EA1E4174BB65C006873B1 /* AddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 321EA1E3174BB65C006873B1 /* AddressCell.xib */; };
 		322B2F54174A523A002DAEC4 /* CheckOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B2F53174A523A002DAEC4 /* CheckOutViewController.m */; };
-		322B2F56174A5400002DAEC4 /* address.plist in Resources */ = {isa = PBXBuildFile; fileRef = 322B2F55174A5400002DAEC4 /* address.plist */; };
 		322B2F59174A631E002DAEC4 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B2F58174A631E002DAEC4 /* LoadingView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		322B2F5D174A7445002DAEC4 /* DropDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 322B2F5B174A7445002DAEC4 /* DropDownCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		322B2F5E174A7445002DAEC4 /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 322B2F5C174A7445002DAEC4 /* DropDownCell.xib */; };
@@ -90,6 +89,22 @@
 		32A715F417202744002568A6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A715F317202744002568A6 /* MobileCoreServices.framework */; };
 		32A715F61720277B002568A6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A715F51720277B002568A6 /* libz.dylib */; };
 		32BFFB26174F8208002D394F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32BFFB28174F8208002D394F /* Localizable.strings */; };
+		32BFFB33175246B7002D394F /* risotto_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32BFFB32175246B7002D394F /* risotto_en.plist */; };
+		32BFFB3917524850002D394F /* categoryList_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32BFFB3817524850002D394F /* categoryList_en.plist */; };
+		32BFFB48175248A2002D394F /* snack_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32BFFB3A175248A1002D394F /* snack_en.plist */; };
+		32BFFB49175248A2002D394F /* wrap_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32BFFB3B175248A1002D394F /* wrap_en.plist */; };
+		32BFFB4A175248A2002D394F /* sandwich_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32BFFB3C175248A1002D394F /* sandwich_en.plist */; };
+		32BFFB4B175248A2002D394F /* pasta_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32BFFB3D175248A1002D394F /* pasta_en.plist */; };
+		32BFFB4C175248A2002D394F /* dessert_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32BFFB3E175248A1002D394F /* dessert_en.plist */; };
+		32BFFB4D175248A2002D394F /* smoothies_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32BFFB3F175248A1002D394F /* smoothies_en.plist */; };
+		32BFFB4E175248A2002D394F /* milkshake_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32BFFB40175248A2002D394F /* milkshake_en.plist */; };
+		32BFFB4F175248A2002D394F /* fruitjuice_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32BFFB41175248A2002D394F /* fruitjuice_en.plist */; };
+		32BFFB50175248A2002D394F /* drinkandwine_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32BFFB42175248A2002D394F /* drinkandwine_en.plist */; };
+		32BFFB51175248A2002D394F /* selected_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32BFFB43175248A2002D394F /* selected_en.plist */; };
+		32BFFB52175248A2002D394F /* soup_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32BFFB44175248A2002D394F /* soup_en.plist */; };
+		32BFFB53175248A2002D394F /* aboutus_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32BFFB45175248A2002D394F /* aboutus_en.plist */; };
+		32BFFB54175248A2002D394F /* salad_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32BFFB46175248A2002D394F /* salad_en.plist */; };
+		32BFFB55175248A2002D394F /* pizza_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32BFFB47175248A2002D394F /* pizza_en.plist */; };
 		32C7506D1711611400A99E9C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C7506C1711611400A99E9C /* UIKit.framework */; };
 		32C7506F1711611400A99E9C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C7506E1711611400A99E9C /* Foundation.framework */; };
 		32C750711711611400A99E9C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C750701711611400A99E9C /* CoreGraphics.framework */; };
@@ -120,7 +135,6 @@
 		321EA1E3174BB65C006873B1 /* AddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressCell.xib; sourceTree = "<group>"; };
 		322B2F52174A523A002DAEC4 /* CheckOutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckOutViewController.h; sourceTree = "<group>"; };
 		322B2F53174A523A002DAEC4 /* CheckOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckOutViewController.m; sourceTree = "<group>"; };
-		322B2F55174A5400002DAEC4 /* address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = address.plist; sourceTree = "<group>"; };
 		322B2F57174A631E002DAEC4 /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
 		322B2F58174A631E002DAEC4 /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		322B2F5A174A7445002DAEC4 /* DropDownCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownCell.h; sourceTree = "<group>"; };
@@ -223,10 +237,26 @@
 		32A715F117202719002568A6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		32A715F317202744002568A6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		32A715F51720277B002568A6 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		32BFFB27174F8208002D394F /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		32BFFB27174F8208002D394F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		32BFFB29174F82A8002D394F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/MainStoryboard.storyboard"; sourceTree = "<group>"; };
 		32BFFB2A174F82A8002D394F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		32BFFB2B174F82A8002D394F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		32BFFB2B174F82A8002D394F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		32BFFB32175246B7002D394F /* risotto_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = risotto_en.plist; path = CoffeeOrder/risotto_en.plist; sourceTree = "<group>"; };
+		32BFFB3817524850002D394F /* categoryList_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = categoryList_en.plist; path = CoffeeOrder/categoryList_en.plist; sourceTree = "<group>"; };
+		32BFFB3A175248A1002D394F /* snack_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = snack_en.plist; sourceTree = "<group>"; };
+		32BFFB3B175248A1002D394F /* wrap_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = wrap_en.plist; sourceTree = "<group>"; };
+		32BFFB3C175248A1002D394F /* sandwich_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sandwich_en.plist; sourceTree = "<group>"; };
+		32BFFB3D175248A1002D394F /* pasta_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pasta_en.plist; sourceTree = "<group>"; };
+		32BFFB3E175248A1002D394F /* dessert_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dessert_en.plist; sourceTree = "<group>"; };
+		32BFFB3F175248A1002D394F /* smoothies_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = smoothies_en.plist; sourceTree = "<group>"; };
+		32BFFB40175248A2002D394F /* milkshake_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = milkshake_en.plist; sourceTree = "<group>"; };
+		32BFFB41175248A2002D394F /* fruitjuice_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fruitjuice_en.plist; sourceTree = "<group>"; };
+		32BFFB42175248A2002D394F /* drinkandwine_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = drinkandwine_en.plist; sourceTree = "<group>"; };
+		32BFFB43175248A2002D394F /* selected_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = selected_en.plist; sourceTree = "<group>"; };
+		32BFFB44175248A2002D394F /* soup_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = soup_en.plist; sourceTree = "<group>"; };
+		32BFFB45175248A2002D394F /* aboutus_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = aboutus_en.plist; sourceTree = "<group>"; };
+		32BFFB46175248A2002D394F /* salad_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = salad_en.plist; sourceTree = "<group>"; };
+		32BFFB47175248A2002D394F /* pizza_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pizza_en.plist; sourceTree = "<group>"; };
 		32C750691711611400A99E9C /* CoffeeOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C7506C1711611400A99E9C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		32C7506E1711611400A99E9C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -329,23 +359,8 @@
 		32549027173A65060072F724 /* Plist */ = {
 			isa = PBXGroup;
 			children = (
-				3296FA901744F232001D7890 /* aboutus.plist */,
-				325490251737EF870072F724 /* categoryList.plist */,
-				32549040173A66B10072F724 /* selected.plist */,
-				32549028173A65340072F724 /* salad.plist */,
-				3254902C173A65A90072F724 /* soup.plist */,
-				32549034173A660C0072F724 /* pizza.plist */,
-				32549032173A65F70072F724 /* pasta.plist */,
-				32549030173A65D20072F724 /* sandwich.plist */,
-				3254901C173537960072F724 /* risotto.plist */,
-				3254902E173A65B90072F724 /* wrap.plist */,
-				3254902A173A65620072F724 /* snack.plist */,
-				32549036173A66240072F724 /* dessert.plist */,
-				32549038173A66300072F724 /* smoothies.plist */,
-				3254903A173A663D0072F724 /* milkshake.plist */,
-				3254903C173A66640072F724 /* fruitjuice.plist */,
-				3254903E173A66760072F724 /* drinkandwine.plist */,
-				322B2F55174A5400002DAEC4 /* address.plist */,
+				32BFFB311752435E002D394F /* EN */,
+				32BFFB301752434C002D394F /* CN */,
 			);
 			name = Plist;
 			sourceTree = "<group>";
@@ -358,6 +373,8 @@
 				325490171735117E0072F724 /* MenuCell.h */,
 				325490181735117E0072F724 /* MenuCell.m */,
 				3254901A173517790072F724 /* MenuCell.xib */,
+				3296FAA7174625A2001D7890 /* GGFullscreenImageViewController.h */,
+				3296FAA8174625A3001D7890 /* GGFullscreenImageViewController.m */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -372,6 +389,8 @@
 				3296FA841743CD19001D7890 /* ShoppingCartCell.xib */,
 				322B2F52174A523A002DAEC4 /* CheckOutViewController.h */,
 				322B2F53174A523A002DAEC4 /* CheckOutViewController.m */,
+				322B2F57174A631E002DAEC4 /* LoadingView.h */,
+				322B2F58174A631E002DAEC4 /* LoadingView.m */,
 				322B2F5A174A7445002DAEC4 /* DropDownCell.h */,
 				322B2F5B174A7445002DAEC4 /* DropDownCell.m */,
 				322B2F5C174A7445002DAEC4 /* DropDownCell.xib */,
@@ -431,6 +450,52 @@
 			path = ASIHTTPRequest;
 			sourceTree = "<group>";
 		};
+		32BFFB301752434C002D394F /* CN */ = {
+			isa = PBXGroup;
+			children = (
+				325490251737EF870072F724 /* categoryList.plist */,
+				32549040173A66B10072F724 /* selected.plist */,
+				32549028173A65340072F724 /* salad.plist */,
+				3254902C173A65A90072F724 /* soup.plist */,
+				32549034173A660C0072F724 /* pizza.plist */,
+				32549032173A65F70072F724 /* pasta.plist */,
+				32549030173A65D20072F724 /* sandwich.plist */,
+				3254901C173537960072F724 /* risotto.plist */,
+				3254902E173A65B90072F724 /* wrap.plist */,
+				3254902A173A65620072F724 /* snack.plist */,
+				32549036173A66240072F724 /* dessert.plist */,
+				32549038173A66300072F724 /* smoothies.plist */,
+				3254903A173A663D0072F724 /* milkshake.plist */,
+				3254903C173A66640072F724 /* fruitjuice.plist */,
+				3254903E173A66760072F724 /* drinkandwine.plist */,
+				3296FA901744F232001D7890 /* aboutus.plist */,
+			);
+			name = CN;
+			sourceTree = "<group>";
+		};
+		32BFFB311752435E002D394F /* EN */ = {
+			isa = PBXGroup;
+			children = (
+				32BFFB3817524850002D394F /* categoryList_en.plist */,
+				32BFFB3A175248A1002D394F /* snack_en.plist */,
+				32BFFB3B175248A1002D394F /* wrap_en.plist */,
+				32BFFB3C175248A1002D394F /* sandwich_en.plist */,
+				32BFFB3D175248A1002D394F /* pasta_en.plist */,
+				32BFFB3E175248A1002D394F /* dessert_en.plist */,
+				32BFFB3F175248A1002D394F /* smoothies_en.plist */,
+				32BFFB40175248A2002D394F /* milkshake_en.plist */,
+				32BFFB41175248A2002D394F /* fruitjuice_en.plist */,
+				32BFFB42175248A2002D394F /* drinkandwine_en.plist */,
+				32BFFB43175248A2002D394F /* selected_en.plist */,
+				32BFFB44175248A2002D394F /* soup_en.plist */,
+				32BFFB46175248A2002D394F /* salad_en.plist */,
+				32BFFB47175248A2002D394F /* pizza_en.plist */,
+				32BFFB32175246B7002D394F /* risotto_en.plist */,
+				32BFFB45175248A2002D394F /* aboutus_en.plist */,
+			);
+			name = EN;
+			sourceTree = "<group>";
+		};
 		32C750601711611400A99E9C = {
 			isa = PBXGroup;
 			children = (
@@ -472,19 +537,15 @@
 		32C750721711611400A99E9C /* CoffeeOrder */ = {
 			isa = PBXGroup;
 			children = (
-				322B2F57174A631E002DAEC4 /* LoadingView.h */,
-				322B2F58174A631E002DAEC4 /* LoadingView.m */,
 				32C7507B1711611400A99E9C /* TJAppDelegate.h */,
 				32C7507C1711611400A99E9C /* TJAppDelegate.m */,
-				3296FAA7174625A2001D7890 /* GGFullscreenImageViewController.h */,
-				3296FAA8174625A3001D7890 /* GGFullscreenImageViewController.m */,
+				325413ED172D1F1D00446927 /* Constants.h */,
+				325413EE172D1F1D00446927 /* Constants.m */,
 				3296FA7F1743CC4F001D7890 /* Menu */,
 				3296FA801743CC76001D7890 /* ShopCart */,
 				325413EC172D14CB00446927 /* MyAccount */,
 				3296FA8A1744F1C9001D7890 /* AboutUs */,
 				3296FA921744F31B001D7890 /* SideView */,
-				325413ED172D1F1D00446927 /* Constants.h */,
-				325413EE172D1F1D00446927 /* Constants.m */,
 			);
 			path = CoffeeOrder;
 			sourceTree = "<group>";
@@ -643,7 +704,6 @@
 				3296FAA21745C7F5001D7890 /* addCart.png in Resources */,
 				3296FAA517460A3F001D7890 /* navMenu@2x.png in Resources */,
 				3296FAA617460A3F001D7890 /* navMenu.png in Resources */,
-				322B2F56174A5400002DAEC4 /* address.plist in Resources */,
 				322B2F5E174A7445002DAEC4 /* DropDownCell.xib in Resources */,
 				322B2F61174A7452002DAEC4 /* arrow_down.png in Resources */,
 				322B2F62174A7452002DAEC4 /* arrow_up.png in Resources */,
@@ -660,6 +720,22 @@
 				3270C6A9174E690600E03FD3 /* 117.jpg in Resources */,
 				3270C6AA174E690600E03FD3 /* 133.jpg in Resources */,
 				32BFFB26174F8208002D394F /* Localizable.strings in Resources */,
+				32BFFB33175246B7002D394F /* risotto_en.plist in Resources */,
+				32BFFB3917524850002D394F /* categoryList_en.plist in Resources */,
+				32BFFB48175248A2002D394F /* snack_en.plist in Resources */,
+				32BFFB49175248A2002D394F /* wrap_en.plist in Resources */,
+				32BFFB4A175248A2002D394F /* sandwich_en.plist in Resources */,
+				32BFFB4B175248A2002D394F /* pasta_en.plist in Resources */,
+				32BFFB4C175248A2002D394F /* dessert_en.plist in Resources */,
+				32BFFB4D175248A2002D394F /* smoothies_en.plist in Resources */,
+				32BFFB4E175248A2002D394F /* milkshake_en.plist in Resources */,
+				32BFFB4F175248A2002D394F /* fruitjuice_en.plist in Resources */,
+				32BFFB50175248A2002D394F /* drinkandwine_en.plist in Resources */,
+				32BFFB51175248A2002D394F /* selected_en.plist in Resources */,
+				32BFFB52175248A2002D394F /* soup_en.plist in Resources */,
+				32BFFB53175248A2002D394F /* aboutus_en.plist in Resources */,
+				32BFFB54175248A2002D394F /* salad_en.plist in Resources */,
+				32BFFB55175248A2002D394F /* pizza_en.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

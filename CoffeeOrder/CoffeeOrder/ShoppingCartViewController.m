@@ -101,7 +101,7 @@
 - (IBAction)goToCheckout:(id)sender {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults valueForKey:@"phoneNumber"] == NULL || [defaults valueForKey:@"password"] == NULL) {
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"用户未登录，请先切换至'我的账户'登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"prompt", nil) message:NSLocalizedString(@"please login first", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil) otherButtonTitles:NSLocalizedString(@"confirm", nil), nil];
         [av show];
     }
     else {

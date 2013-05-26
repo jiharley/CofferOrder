@@ -76,19 +76,19 @@
         [appDelegate.orderedList removeAllObjects];
 
         [loadingView removeView];
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您的订单已收到，我们会尽快向您确认。" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"prompt", nil) message:NSLocalizedString(@"submit order success prompt", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"confirm", nil) otherButtonTitles:nil, nil];
         av.tag = 1;
         [av show];
     }
     else {
         [loadingView removeView];
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"订单提交失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"prompt", nil) message:NSLocalizedString(@"submit order failed prompt", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"confirm", nil) otherButtonTitles:nil, nil];
         [av show];
     }
 }
 -(void) requestFailed:(ASIHTTPRequest *)request
 {
-    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"连接超时，网络不太给力哦~~~" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"prompt", nil) message:NSLocalizedString(@"request failed prompt", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"confirm", nil) otherButtonTitles:nil, nil];
     [av show];
     [loadingView removeView];
 }
@@ -96,12 +96,12 @@
 //提交订单
 - (IBAction)submitOrder:(id)sender {
     if ([self isEmptyOrNull:usernameTextField.text]) {
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入称呼" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"prompt", nil) message:NSLocalizedString(@"please input the name", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"confirm", nil) otherButtonTitles:nil, nil];
         [av show];
         return;
     }
     if (!selectedAddress) {
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"无地址，请切换至'我的账户'添加送餐地址" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"prompt", nil) message:NSLocalizedString(@"please add address", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"confirm", nil) otherButtonTitles:nil, nil];
         [av show];
         return;
     }
@@ -127,7 +127,7 @@
     [request setTimeOutSeconds:30];
     [request startAsynchronous];
     
-    loadingView = [LoadingView loadingViewInView:self.view withTitle:@"正在提交订单..."];
+    loadingView = [LoadingView loadingViewInView:self.view withTitle:NSLocalizedString(@"submitting order", nil)];
 }
 
 -(void) loadAddress

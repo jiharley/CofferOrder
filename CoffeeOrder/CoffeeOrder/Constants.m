@@ -9,7 +9,7 @@
 #import "Constants.h"
 
 //NSString *const serverURL = @"http://wm.tongji.edu.cn";
-NSString *const serverURL = @"http://10.60.102.129";
+NSString *const serverURL = @"http://10.60.102.139";
 //NSArray  *const categoryListArray = [NSArray arrayWithObjects:
 //                                    @"每月精选",@"色拉",@"汤",@"披萨",
 //                                    @"意大利面",@"三明治",@"意大利饭",@"墨西哥卷",

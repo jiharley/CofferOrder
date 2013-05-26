@@ -146,7 +146,7 @@
 							<object class="IBUILabel" id="248780233">
 								<reference key="NSNextResponder" ref="535289266"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{95, 5}, {170, 20}}</string>
+								<string key="NSFrame">{{95, 5}, {177, 20}}</string>
 								<reference key="NSSuperview" ref="535289266"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="316983034"/>
@@ -163,9 +163,12 @@
 								</object>
 								<reference key="IBUIHighlightedColor" ref="94556905"/>
 								<int key="IBUIBaselineAdjustment">0</int>
+								<float key="IBUIMinimumFontSize">9</float>
+								<bool key="IBUIAdjustsLetterSpacingToFitWidth">YES</bool>
+								<int key="IBUINumberOfLines">2</int>
 								<reference key="IBUIFontDescription" ref="590120432"/>
 								<reference key="IBUIFont" ref="115974796"/>
-								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+								<double key="preferredMaxLayoutWidth">177</double>
 							</object>
 							<object class="IBUILabel" id="445542353">
 								<reference key="NSNextResponder" ref="535289266"/>
@@ -188,6 +191,7 @@
 								</object>
 								<reference key="IBUIHighlightedColor" ref="94556905"/>
 								<int key="IBUIBaselineAdjustment">0</int>
+								<float key="IBUIMinimumFontSize">8</float>
 								<int key="IBUINumberOfLines">3</int>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
 									<int key="type">1</int>
@@ -198,7 +202,6 @@
 									<double key="NSSize">12</double>
 									<int key="NSfFlags">16</int>
 								</object>
-								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 								<double key="preferredMaxLayoutWidth">170</double>
 							</object>
 						</array>

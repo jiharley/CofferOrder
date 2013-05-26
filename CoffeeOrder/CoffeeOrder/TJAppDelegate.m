@@ -19,7 +19,16 @@
 @synthesize menuController = _menuController;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    categoryName = @"risotto";
+//    NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
+//    NSArray* languages = [defs objectForKey:@"AppleLanguages"];
+//    NSString* preferredLang = [languages objectAtIndex:0];
+    NSString *deviceLang = [[[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"] objectAtIndex:0];
+    if ([deviceLang isEqual:@"zh-Hans"] || [deviceLang isEqual:@"zh-Hant"]) {
+        categoryName = @"salad";
+    }
+    else {
+        categoryName = @"salad_en";
+    }
     orderedList = [[NSMutableArray alloc] init];
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     

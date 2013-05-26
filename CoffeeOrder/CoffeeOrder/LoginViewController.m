@@ -66,19 +66,19 @@
     }
     else if ([statusStr isEqual:@"user does not exist"]){
         //该手机号不存在
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"该手机号未注册" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"prompt", nil) message:NSLocalizedString(@"phone number hasn't registered", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"confirm", nil) otherButtonTitles:nil, nil];
         [av show];
 
     }
     else if ([statusStr isEqual:@"wrong password"]){
         //密码错误
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"密码错误" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"prompt", nil) message:NSLocalizedString(@"wrong password", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"confirm", nil) otherButtonTitles:nil, nil];
         [av show];
 
     }
     else {
         //未知错误
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"登录失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"prompt", nil) message:NSLocalizedString(@"login failed", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"confirm", nil) otherButtonTitles:nil, nil];
         [av show];
     }
 }
@@ -86,7 +86,7 @@
 - (void) requestFailed:(ASIHTTPRequest *)request
 {
     NSLog(@"failed");
-    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"连接超时，网络不太给力哦~~~" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"prompt", nil) message:NSLocalizedString(@"request failed prompt", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"confirm", nil) otherButtonTitles:nil, nil];
     [av show];
 }
 
@@ -121,11 +121,11 @@
 - (BOOL) isFill:(NSString *) password and:(NSString *)phoneNumber
 {
     if ([phoneNumber isEqual:@""]) {
-        errorMsg.text = @"请输入手机号";
+        errorMsg.text = NSLocalizedString(@"please input phone number", nil);
         return FALSE;
     }
     else if ([password isEqual: @""]) {
-        errorMsg.text = @"请输入密码";
+        errorMsg.text = NSLocalizedString(@"please input password", nil);
         return FALSE;
     }
 

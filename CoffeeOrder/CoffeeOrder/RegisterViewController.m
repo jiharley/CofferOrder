@@ -87,7 +87,7 @@
         [defaults setValue:usernameText.text forKey:@"userName"];
         [defaults setValue:emailText.text forKey:@"email"];
         //跳转至登录界面
-        UIAlertView *registerSuccessAv = [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        UIAlertView *registerSuccessAv = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"prompt", nil) message:NSLocalizedString(@"register success", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"confirm", nil) otherButtonTitles:nil, nil];
         registerSuccessAv.tag = 1;
         [registerSuccessAv show];
 //        [NSThread sleepForTimeInterval:1];
@@ -95,16 +95,16 @@
 
     }
     else if ([statusStr isEqual:@"user exists"]) {
-         errorMsg.text = @"该号码已注册";
+         errorMsg.text = NSLocalizedString(@"user exists", nil);
     }
     else {
-         errorMsg.text = @"注册失败";
+         errorMsg.text = NSLocalizedString(@"register failed", nil);
     }
 }
 
 - (void) requestFailed:(ASIHTTPRequest *)request
 {
-    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"连接超时，网络不太给力哦~~~" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"prompt", nil) message:NSLocalizedString(@"prompt", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"request failed prompt", nil) otherButtonTitles:nil, nil];
     [av show];
     //errorMsg.text = @"注册失败";
 }
@@ -183,11 +183,11 @@
 - (BOOL) isFill:(NSString *) username and:(NSString *)phoneNumber
 {
     if ([username isEqual: @""]) {
-        errorMsg.text = @"称呼不能为空";
+        errorMsg.text = NSLocalizedString(@"user name empty", nil);
         return FALSE;
     }
     else if ([phoneNumber isEqual:@""]) {
-        errorMsg.text = @"手机号不能为空";
+        errorMsg.text = NSLocalizedString(@"phone number empty", nil);
         return FALSE;
     }
     else {
@@ -200,7 +200,7 @@
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES%@",emailRegex];
     if ([emailTest evaluateWithObject:email] == FALSE) {
-        errorMsg.text = @"email格式不正确";
+        errorMsg.text = NSLocalizedString(@"invalid email format", nil);
     }
     return [emailTest evaluateWithObject:email];
 }
@@ -208,11 +208,11 @@
 - (BOOL) isValidatePasswd:(NSString *) passwd confirmPasswd:(NSString *)confirmPasswd
 {
     if (passwd.length < 6) {
-        errorMsg.text = @"密码长度需不少于6位";
+        errorMsg.text = NSLocalizedString(@"password length invalid", nil);
         return FALSE;
     }
     else if (![passwd isEqualToString:confirmPasswd]) {
-        errorMsg.text = @"两次输入密码不一致";
+        errorMsg.text = NSLocalizedString(@"different password input", nil);
         return FALSE;
     }
     else {
