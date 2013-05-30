@@ -207,7 +207,7 @@
 
 - (BOOL) isValidatePasswd:(NSString *) passwd confirmPasswd:(NSString *)confirmPasswd
 {
-    if (passwd.length < 6) {
+    if (passwd.length < 8) {
         errorMsg.text = NSLocalizedString(@"password length invalid", nil);
         return FALSE;
     }

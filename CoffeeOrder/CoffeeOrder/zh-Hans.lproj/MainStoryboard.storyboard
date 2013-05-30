@@ -272,7 +272,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="不少于6位" minimumFontSize="17" id="NJS-hx-1xd">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="不少于8位" minimumFontSize="17" id="NJS-hx-1xd">
                                 <rect key="frame" x="117" y="164" width="169" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -550,7 +550,7 @@
         <scene sceneID="u12-TZ-lWN">
             <objects>
                 <navigationController id="fN4-Mq-9hw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="菜单" image="first" id="7"/>
+                    <tabBarItem key="tabBarItem" title="菜单" image="menu" id="7"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="AiZ-eJ-ta2">
@@ -570,7 +570,7 @@
         <scene sceneID="rPc-3A-k8e">
             <objects>
                 <navigationController id="otf-4f-2HM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="购物车" image="second" id="6"/>
+                    <tabBarItem key="tabBarItem" title="购物车" image="shopping" id="6"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="Rgl-6m-UMG">
@@ -590,7 +590,7 @@
         <scene sceneID="W3c-R0-Nho">
             <objects>
                 <navigationController id="P48-nn-HQr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的账户" image="first" id="h6O-oG-2mz"/>
+                    <tabBarItem key="tabBarItem" title="我的账户" image="myaccount" id="h6O-oG-2mz"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="g4T-w0-xzx">
@@ -610,7 +610,7 @@
         <scene sceneID="jel-IN-Rrb">
             <objects>
                 <navigationController id="cqP-Bu-hgB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="关于我们" image="second" id="XcI-Sl-Ot9"/>
+                    <tabBarItem key="tabBarItem" title="关于我们" image="aboutus" id="XcI-Sl-Ot9"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="sUU-0o-dDk">
@@ -628,8 +628,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="16" height="16"/>
-        <image name="second" width="16" height="16"/>
+        <image name="aboutus" width="16" height="16"/>
+        <image name="menu" width="16" height="16"/>
+        <image name="myaccount" width="16" height="16"/>
+        <image name="shopping" width="16" height="16"/>
     </resources>
     <classes>
         <class className="AboutUsViewController" superclassName="UIViewController">
