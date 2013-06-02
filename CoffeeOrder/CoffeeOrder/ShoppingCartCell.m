@@ -9,8 +9,8 @@
 #import "ShoppingCartCell.h"
 
 @implementation ShoppingCartCell
-@synthesize plusBtn;
-@synthesize minusBtn;
+//@synthesize plusBtn;
+//@synthesize minusBtn;
 @synthesize foodNameLabel;
 @synthesize foodPriceLabel;
 @synthesize foodImageView;

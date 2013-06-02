@@ -190,6 +190,10 @@
         errorMsg.text = NSLocalizedString(@"phone number empty", nil);
         return FALSE;
     }
+    else if (phoneNumber.length > 20) {
+        errorMsg.text = NSLocalizedString(@"phone number too long", nil);
+        return false;
+    }
     else {
         return TRUE;
     }

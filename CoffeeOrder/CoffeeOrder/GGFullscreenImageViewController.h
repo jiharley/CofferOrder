@@ -15,9 +15,10 @@ typedef NS_ENUM(NSUInteger, GGOrientation) {
     GGOrientationLandscapeRight = 3
 };
 
-@interface GGFullscreenImageViewController : UIViewController
+@interface GGFullscreenImageViewController : UIViewController <UITextViewDelegate>
 
 @property (nonatomic, retain) UIImageView *liftedImageView;
+@property (nonatomic, retain) NSString *foodDetail;
 @property (nonatomic, assign) UIInterfaceOrientationMask supportedOrientations;
 
 @end

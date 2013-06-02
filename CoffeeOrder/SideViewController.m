@@ -35,7 +35,7 @@
     // Do any additional setup after loading the view from its nib.
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *deviceLang = [[[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"] objectAtIndex:0];
-    NSURL *plistURL = [[NSURL alloc] init];
+    NSURL *plistURL = nil;
     if ([deviceLang isEqual:@"zh-Hans"] || [deviceLang isEqual:@"zh-Hant"])
     {
         plistURL = [bundle URLForResource:@"categoryList" withExtension:@"plist"];

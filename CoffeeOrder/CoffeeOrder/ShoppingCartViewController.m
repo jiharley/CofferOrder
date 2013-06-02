@@ -50,14 +50,16 @@
         chectoutBtn.enabled = YES;
     }
 }
-//tableview cell中 减号按钮的响应函数
-- (void) plusAction:(id) sender
+//tableview cell中 加号按钮的响应函数
+- (void) plusAction:(UITapGestureRecognizer *) sender
 {
     TJAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
-    UIButton *thePlusBtn = (UIButton *) sender;
-    ShoppingCartCell *theCell = (ShoppingCartCell *)[[thePlusBtn superview] superview];
-    NSUInteger theRowNumber = thePlusBtn.tag;
+//    UIButton *thePlusBtn = (UIButton *) sender;
+    UIImageView *thePlusImageView = (UIImageView *) sender.self.view;
+
+    ShoppingCartCell *theCell = (ShoppingCartCell *)[[thePlusImageView superview] superview];
+    NSUInteger theRowNumber = thePlusImageView.tag;
     NSMutableDictionary *theFoodDic = [[NSMutableDictionary alloc]initWithDictionary:[self.shoppingCartDataArray objectAtIndex:theRowNumber]];
     priceSum += [[theFoodDic objectForKey:@"price"] integerValue];
     self.priceSumLabel.text = [NSString stringWithFormat:@"%d", priceSum];
@@ -69,14 +71,15 @@
     [self.shoppingCartDataArray replaceObjectAtIndex:theRowNumber withObject:theFoodDic];
     appDelegate.orderedList = [self.shoppingCartDataArray mutableCopy];
 }
-//tableview cell中 加号按钮的响应函数
-- (void) minusAction:(id) sender
+//tableview cell中 减号按钮的响应函数
+- (void) minusAction:(UITapGestureRecognizer *) sender
 {
     TJAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
-    UIButton *theMinusBtn = (UIButton *) sender;
-    ShoppingCartCell *theCell = (ShoppingCartCell *)[[theMinusBtn superview] superview];
-    NSUInteger theRowNumber = theMinusBtn.tag;
+//    UIButton *theMinusBtn = (UIButton *) sender;
+    UIImageView *theMinusImageView = (UIImageView *) sender.self.view;
+    ShoppingCartCell *theCell = (ShoppingCartCell *)[[theMinusImageView superview] superview];
+    NSUInteger theRowNumber = theMinusImageView.tag;
     NSMutableDictionary *theFoodDic = [[NSMutableDictionary alloc]initWithDictionary:[self.shoppingCartDataArray objectAtIndex:theRowNumber]];
     
     NSInteger thefoodNum = [[theFoodDic objectForKey:@"number"] integerValue] - 1;
@@ -164,12 +167,21 @@
     cell.foodNumberTextField.text = [rowData objectForKey:@"number"];
     cell.foodImageView.image = [foodImageList objectAtIndex:row];
     cell.foodNumberTextField.delegate = self;
-    //添加 加、减 按钮响应时间及按钮标签
-    [cell.plusBtn addTarget:self action:@selector(plusAction:) forControlEvents:UIControlEventTouchUpInside];
-    cell.plusBtn.tag = row;
+    //添加 加、减 按钮响应事件及按钮标签
+    cell.plusImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *oneClick = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(plusAction:)];
+    [cell.plusImageView addGestureRecognizer:oneClick];
+    cell.plusImageView.tag = row;
+
+    cell.minusImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *oneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(minusAction:)];
+    [cell.minusImageView addGestureRecognizer:oneTap];
+    cell.minusImageView.tag = row;
+//    [cell.plusBtn addTarget:self action:@selector(plusAction:) forControlEvents:UIControlEventTouchUpInside];
+//    cell.plusBtn.tag = row;
     
-    [cell.minusBtn addTarget:self action:@selector(minusAction:) forControlEvents:UIControlEventTouchUpInside];
-    cell.minusBtn.tag = row;
+//    [cell.minusBtn addTarget:self action:@selector(minusAction:) forControlEvents:UIControlEventTouchUpInside];
+//    cell.minusBtn.tag = row;
     return cell;
 }
 

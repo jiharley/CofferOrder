@@ -20,7 +20,7 @@
 @synthesize imageList;
 @synthesize foodIdList;
 @synthesize orderedIdList;
-
+@synthesize userGuideView;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -34,20 +34,18 @@
     {
         [self.navigationController.navigationBar insertSubview:[[UIImageView alloc] initWithImage:backgroundImage]atIndex:1];
     }
-   
-//    if (!tableView) {
+        //    if (!tableView) {
         menuListTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         menuListTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         menuListTableView.delegate = (id<UITableViewDelegate>)self;
         menuListTableView.dataSource = (id<UITableViewDataSource>)self;
         [self.view addSubview:menuListTableView];
         //self.menuListTableView = tableView;
-//    }
-    
-    TJAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [self loadDataWithCategoryName:appDelegate.categoryName];//载入数据
-    //构建已经加入购物车的菜品id的数组
-    orderedIdList = [[NSMutableArray alloc] init];
+        //    }
+        TJAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        [self loadDataWithCategoryName:appDelegate.categoryName];//载入数据
+        //构建已经加入购物车的菜品id的数组
+        orderedIdList = [[NSMutableArray alloc] init];
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -92,17 +90,20 @@
     self.foodIdList = [tmpIdArray copy];
 }
 
-- (void) addToCart:(id) sender
+- (void) addToCart:(UITapGestureRecognizer *) sender
 {
-    UIButton *selectedBtn = (UIButton *) sender;
-    NSUInteger selectedRow = selectedBtn.tag;
+    UIImageView *theImageView = (UIImageView *) sender.self.view;
+//    UIButton *selectedBtn = (UIButton *) sender;
+//    NSUInteger selectedRow = selectedBtn.tag;
+    NSUInteger selectedRow = theImageView.tag;
     NSDictionary *selectedDataDic = [self.dataList objectAtIndex:selectedRow];
     TJAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
     NSString *selectedFoodId = [selectedDataDic objectForKey:@"id"];
     NSUInteger selectedFoodIdIndex = [orderedIdList indexOfObject:selectedFoodId];
     if ([orderedIdList containsObject:selectedFoodId]) { //已在购物车中，从购物车中删除
-        [selectedBtn setBackgroundImage:[UIImage imageNamed:@"addCart"] forState:UIControlStateNormal];
+        theImageView.image = [UIImage imageNamed:@"addCart"];
+//        [selectedBtn setBackgroundImage:[UIImage imageNamed:@"addCart"] forState:UIControlStateNormal];
         
         [appDelegate.orderedList removeObjectAtIndex:selectedFoodIdIndex];
         
@@ -110,8 +111,8 @@
         [orderedIdList removeObjectAtIndex:selectedFoodIdIndex];
     }
     else{  //未在购物车中，加入购物车
-        [selectedBtn setBackgroundImage:[UIImage imageNamed:@"inCart"] forState:UIControlStateNormal];
-        
+//        [selectedBtn setBackgroundImage:[UIImage imageNamed:@"inCart"] forState:UIControlStateNormal];
+        theImageView.image = [UIImage imageNamed:@"inCart"];
         NSMutableDictionary *tempSelectedDic = [[NSMutableDictionary alloc] init];
         [tempSelectedDic setObject:[selectedDataDic objectForKey:@"id"] forKey:@"id"];
         [tempSelectedDic setObject:[selectedDataDic objectForKey:@"name"] forKey:@"name"];
@@ -126,16 +127,18 @@
 
 - (void) zoomImage:(UITapGestureRecognizer *) sender
 {
-    UIView *theView = sender.self.view;
+    UIImageView *theImageView = (UIImageView *)sender.self.view;
 //    NSUInteger theRow = theView.tag;
 ////    UIView *screenView = [[UIView alloc] initWithFrame:self.view.bounds];
 //    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
 //    imageView.image = [imageList objectAtIndex:theRow];
 //    [self.view addSubview:imageView];
 //    [self.view bringSubviewToFront:imageView];
-    theView.contentMode = UIViewContentModeScaleAspectFit;
+    MenuCell *theCell = (MenuCell *)[[theImageView superview] superview];
+    theImageView.contentMode = UIViewContentModeScaleAspectFit;
     GGFullscreenImageViewController *vc = [[GGFullscreenImageViewController alloc] init];
-    vc.liftedImageView = (UIImageView*) theView;
+    vc.liftedImageView = theImageView;
+    vc.foodDetail = theCell.foodMaterialLabel.text;
     [self presentViewController:vc animated:YES completion:nil];
 
 }
@@ -167,15 +170,29 @@
     [cell.foodImageView addGestureRecognizer:singleTap];
     cell.foodImageView.tag = row;
     
-    //设置添加购物车按钮响应事件并对按钮绑定tag
-    [cell.addCartBtn addTarget:self action:@selector(addToCart:) forControlEvents:UIControlEventTouchUpInside];
-    cell.addCartBtn.tag = row;
+    //加入购物车图片点击事件
+    cell.addCartImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *oneClick = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addToCart:)];
+    [cell.addCartImageView addGestureRecognizer:oneClick];
+    cell.addCartImageView.tag = row;
+    
+    
     if ([orderedIdList containsObject:[rowData objectForKey:@"id"]]) {
-        [cell.addCartBtn setBackgroundImage:[UIImage imageNamed:@"inCart"] forState:UIControlStateNormal];
+        cell.addCartImageView.image = [UIImage imageNamed:@"inCart"];
     }
     else {
-        [cell.addCartBtn setBackgroundImage:[UIImage imageNamed:@"addCart"] forState:UIControlStateNormal];
+        cell.addCartImageView.image = [UIImage imageNamed:@"addCart"];
     }
+
+    //设置添加购物车按钮响应事件并对按钮绑定tag
+//    [cell.addCartBtn addTarget:self action:@selector(addToCart:) forControlEvents:UIControlEventTouchUpInside];
+//    cell.addCartBtn.tag = row;
+//    if ([orderedIdList containsObject:[rowData objectForKey:@"id"]]) {
+//        [cell.addCartBtn setBackgroundImage:[UIImage imageNamed:@"inCart"] forState:UIControlStateNormal];
+//    }
+//    else {
+//        [cell.addCartBtn setBackgroundImage:[UIImage imageNamed:@"addCart"] forState:UIControlStateNormal];
+//    }
     return cell;
 }
 

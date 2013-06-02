@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SideViewController.h"
-
+#import "UserGuideViewController.h"
 @interface MenuViewController : UIViewController<UITableViewDelegate, UITableViewDelegate>
 {
 }
@@ -20,5 +20,6 @@
 @property (strong, nonatomic) NSArray *foodIdList;
 @property (strong, nonatomic) NSMutableArray *orderedIdList;
 
+@property (strong, nonatomic) UserGuideViewController *userGuideView;
 -(void) loadDataWithCategoryName:(NSString *)categoryName;
 @end

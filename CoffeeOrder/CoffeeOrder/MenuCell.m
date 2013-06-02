@@ -13,8 +13,8 @@
 @synthesize priceLabel;
 @synthesize foodNameLabel;
 @synthesize foodMaterialLabel;
-@synthesize addCartBtn;
-
+//@synthesize addCartBtn;
+@synthesize addCartImageView;
 @synthesize foodName;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

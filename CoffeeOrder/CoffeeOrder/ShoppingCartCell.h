@@ -13,8 +13,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *foodNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *foodPriceLabel;
 
-@property (strong, nonatomic) IBOutlet UIButton *plusBtn;
-@property (strong, nonatomic) IBOutlet UIButton *minusBtn;
+@property (strong, nonatomic) IBOutlet UIImageView *plusImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *minusImageView;
+//@property (strong, nonatomic) IBOutlet UIButton *plusBtn;
+//@property (strong, nonatomic) IBOutlet UIButton *minusBtn;
 
 @property (strong, nonatomic) IBOutlet UITextField *foodNumberTextField;
 @property (strong, nonatomic) IBOutlet UIImageView *foodImageView;

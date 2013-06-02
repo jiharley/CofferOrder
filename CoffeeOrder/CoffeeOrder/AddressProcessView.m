@@ -76,33 +76,33 @@
 //
 // Draw the view.
 //
-- (void)drawRect:(CGRect)rect
-{
-    
-    //create view at center
-    //rect = CGRectMake(CGRectGetMidX(rect)-75, CGRectGetMidY(rect)-50, 150, 130);
-    rect = CGRectMake(CGRectGetMidX(rect)-30, CGRectGetMidY(rect)-180, 60, 30);
-	
-    //set rounded corner
-	const CGFloat ROUND_RECT_CORNER_RADIUS = 5.0;
-	CGPathRef roundRectPath = NewPathWithRoundRect(rect, ROUND_RECT_CORNER_RADIUS);
-	
-	CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    //set grey transclucent background
-	const CGFloat BACKGROUND_OPACITY = 0.75;
-	CGContextSetRGBFillColor(context, 0, 0, 0, BACKGROUND_OPACITY);
-	CGContextAddPath(context, roundRectPath);
-	CGContextFillPath(context);
-    
-    //set transclucent white boreder line
-	const CGFloat STROKE_OPACITY = 0.25;
-	CGContextSetRGBStrokeColor(context, 1, 1, 1, STROKE_OPACITY);
-	CGContextAddPath(context, roundRectPath);
-	CGContextStrokePath(context);
-	
-	CGPathRelease(roundRectPath);
-}
+//- (void)drawRect:(CGRect)rect
+//{
+//    
+//    //create view at center
+//    //rect = CGRectMake(CGRectGetMidX(rect)-75, CGRectGetMidY(rect)-50, 150, 130);
+//    rect = CGRectMake(CGRectGetMidX(rect)-30, CGRectGetMidY(rect)-180, 60, 30);
+//	
+//    //set rounded corner
+//	const CGFloat ROUND_RECT_CORNER_RADIUS = 5.0;
+//	CGPathRef roundRectPath = NewPathWithRoundRect(rect, ROUND_RECT_CORNER_RADIUS);
+//	
+//	CGContextRef context = UIGraphicsGetCurrentContext();
+//    
+//    //set grey transclucent background
+//	const CGFloat BACKGROUND_OPACITY = 0.75;
+//	CGContextSetRGBFillColor(context, 0, 0, 0, BACKGROUND_OPACITY);
+//	CGContextAddPath(context, roundRectPath);
+//	CGContextFillPath(context);
+//    
+//    //set transclucent white boreder line
+//	const CGFloat STROKE_OPACITY = 0.25;
+//	CGContextSetRGBStrokeColor(context, 1, 1, 1, STROKE_OPACITY);
+//	CGContextAddPath(context, roundRectPath);
+//	CGContextStrokePath(context);
+//	
+//	CGPathRelease(roundRectPath);
+//}
 
 
 /*

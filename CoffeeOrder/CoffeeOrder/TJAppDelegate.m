@@ -17,6 +17,7 @@
 @synthesize categoryName;
 @synthesize orderedList;
 @synthesize menuController = _menuController;
+@synthesize userGuideViewController;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 //    NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
@@ -56,14 +57,27 @@
     SideViewController *sideController = [[SideViewController alloc] init];
     rootController.leftViewController = sideController;
     
+    _menuController = rootController;
     tabBarController.delegate = sideController;
     
-    self.window.rootViewController = rootController;
-    self.window.backgroundColor = [UIColor whiteColor];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"everLaunched"] == false) {
+        userGuideViewController = [[UserGuideViewController alloc] initWithNibName:@"UserGuideViewController" bundle:nil];
+        [userGuideViewController.goToMainViewBtn addTarget:self action:@selector(goToMain:) forControlEvents:UIControlEventTouchUpInside];
+        self.window.rootViewController = userGuideViewController;
+    }
+    else{
+        self.window.rootViewController = rootController;
+        self.window.backgroundColor = [UIColor whiteColor];
+    }
     [self.window makeKeyAndVisible];
     return YES;
 }
-							
+//-(void) goToMain:(id) sender {
+//    [userGuideViewController.pageScroll setHidden:YES];
+//    [userGuideViewController.pageControl setHidden:YES];
+//    self.window.rootViewController = _menuController;
+//    [self.window makeKeyAndVisible];
+//}
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

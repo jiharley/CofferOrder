@@ -52,7 +52,8 @@
 "user exists" = "该号码已注册";
 "user name empty" = "称呼不能为空";
 "phone number empty" = "手机号不能为空";
+"phone number too long" = "手机号码过长";
 "invalid email format" = "email格式不正确";
-"password length invalid" = "密码长度需不少于6位";
+"password length invalid" = "密码长度需不少于8位";
 "different password input" = "两次输入密码不一致";
 

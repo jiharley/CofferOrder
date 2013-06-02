@@ -52,6 +52,7 @@
 "user exists" = "The number has been registered";
 "user name empty" = "Please input your name";
 "phone number empty" = "Please input your phone number";
+"phone number too long" = "phone number is too long";
 "invalid email format" = "Invalid email format";
 "password length invalid" = "Password length should be no less than 6";
 "different password input" = "You have input different password";

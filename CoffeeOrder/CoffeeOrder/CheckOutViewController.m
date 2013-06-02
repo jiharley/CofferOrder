@@ -188,20 +188,22 @@
             DropDownCell *cell = (DropDownCell*) [tableView dequeueReusableCellWithIdentifier:DropDownCellIdentifier];
                     
             if (cell == nil){
-                NSLog(@"New Cell Made");
-                        
-                NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DropDownCell" owner:nil options:nil];
-                        
-                for(id currentObject in topLevelObjects)
-                {
-                    if([currentObject isKindOfClass:[DropDownCell class]])
-                    {
-                        cell = (DropDownCell *)currentObject;
-                        break;
-                    }
-                }
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"DropDownCell" owner:self options:nil] objectAtIndex:0];
+//                NSLog(@"New Cell Made");
+//                        
+//                NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DropDownCell" owner:nil options:nil];
+//                        
+//                for(id currentObject in topLevelObjects)
+//                {
+//                    if([currentObject isKindOfClass:[DropDownCell class]])
+//                    {
+//                        cell = (DropDownCell *)currentObject;
+//                        break;
+//                    }
+//                }
+//                topLevelObjects = nil;
             }
-                    
+            
             [[cell textLabel] setText:[addressArray objectAtIndex:row]];
             selectedAddress = cell.textLabel.text;
             // Configure the cell.
@@ -274,9 +276,10 @@
                     
             NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:[indexPath section]];
             DropDownCell *cell = (DropDownCell*) [tableView cellForRowAtIndexPath:path];
-                    
-            [[cell textLabel] setText:selectedAddress];
-                    
+            
+            cell.textLabel.text = selectedAddress;
+//            [[cell textLabel] setText:selectedAddress];
+            
             // close the dropdown cell
             NSMutableArray *indexPathArray = [[NSMutableArray alloc] init];
             for (int i = 0; i < [addressArray count]; i++) {

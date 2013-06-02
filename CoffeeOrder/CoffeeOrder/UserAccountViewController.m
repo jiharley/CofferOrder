@@ -169,6 +169,9 @@
             request.delegate = self;
             [request startAsynchronous];
             
+            //删除过程中，disable编辑按钮
+            [self.editAddressBtn setEnabled:NO];
+            
             if(processView){
                 [processView removeFromSuperview];
                 processView = nil;
@@ -186,6 +189,7 @@
         NSString *statusStr = [request.responseHeaders objectForKey:@"Status"];
         if ([statusStr isEqual:@"success"]) {
             //成功上传至服务器，将地址添加到plist中
+            [self.addAddressBtn setEnabled:YES];//enable添加地址按钮
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             NSString *filename = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"address.plist"];
             NSMutableArray *data = [[NSMutableArray alloc] init];
@@ -208,6 +212,7 @@
         NSString *statusStr = [request.responseHeaders objectForKey:@"Status"];
         if ([statusStr isEqual:@"success"]) {
             //成功删除地址，更新table和plist
+            [self.editAddressBtn setEnabled:YES];//enable编辑按钮
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             NSString *filename = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"address.plist"];
             NSMutableIndexSet *deleteSet = [NSMutableIndexSet indexSet];
@@ -237,11 +242,15 @@
     if (request.tag == addAddressRequestTag) {
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"prompt", nil) message:NSLocalizedString(@"add address request timeout", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"confirm", nil) otherButtonTitles:nil,nil];
         [av show];
+        [processView removeView];
+        [self.addAddressBtn setEnabled:YES];
     }
     if (request.tag == deleteAddressRequestTag) {
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"prompt", nil) message:NSLocalizedString(@"delete address request timeout", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"confirm", nil) otherButtonTitles:nil,nil];
         [av show];
         [self.selectedAddressArray removeAllObjects];
+        [processView removeView];
+        [self.editAddressBtn setEnabled:YES];
     }
 }
 #pragma mark alertview delegate and function
@@ -291,6 +300,7 @@
                     request.delegate = self;
                     [request startAsynchronous];
                     
+                    [self.addAddressBtn setEnabled:NO];
                     if(processView){
                         [processView removeFromSuperview];
                         processView = nil;

@@ -43,13 +43,14 @@ static inline NSInteger RadianDifference(UIInterfaceOrientation from, UIInterfac
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, assign) UIInterfaceOrientation fromOrientation;
 @property (nonatomic, assign) UIInterfaceOrientation toOrientation;
+@property (nonatomic, strong) UITextView *textView;
 
 - (void) onDismiss;
 
 @end
 
 @implementation GGFullscreenImageViewController
-
+@synthesize foodDetail;
 - (id) init {
     self = [super init];
     if (self) {
@@ -88,7 +89,15 @@ static inline NSInteger RadianDifference(UIInterfaceOrientation from, UIInterfac
     self.imageView = [[UIImageView alloc] initWithFrame:self.containerView.bounds];
     self.imageView.autoresizingMask = self.view.autoresizingMask;
     self.imageView.userInteractionEnabled = YES;
-
+    
+    self.textView = [[UITextView alloc] initWithFrame:CGRectMake(0, self.scrollView.bounds.size.height - 80, 320, 80)];
+    self.textView.autoresizingMask = self.view.autoresizingMask;
+    self.textView.backgroundColor = [UIColor blackColor];
+    self.textView.textColor = [UIColor whiteColor];
+    self.textView.text = foodDetail;
+    self.textView.delegate = self;
+    [self.view addSubview:self.textView]; 
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onDismiss)];
     [self.imageView addGestureRecognizer:tap];;
 }
@@ -260,6 +269,10 @@ static inline NSInteger RadianDifference(UIInterfaceOrientation from, UIInterfac
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (BOOL) textViewShouldBeginEditing:(UITextView *)textView
+{
+    return NO;
+}
 #pragma mark - Orientation
 
 - (NSUInteger) supportedInterfaceOrientations {

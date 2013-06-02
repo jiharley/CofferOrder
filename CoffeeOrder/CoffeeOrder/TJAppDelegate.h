@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UserGuideViewController.h"
 @class DDMenuController;
 @interface TJAppDelegate : UIResponder <UIApplicationDelegate>
 {
@@ -17,4 +17,6 @@
 @property NSInteger selectedRowNum;
 @property NSString *categoryName;
 @property (strong, nonatomic) NSMutableArray *orderedList;
+
+@property (strong, nonatomic) UserGuideViewController *userGuideViewController;
 @end
