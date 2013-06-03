@@ -43,6 +43,10 @@
     addressTableView.delegate = self;
     addressTableView.dataSource = self;
     remarkTextField.tag = 1;
+    if (!selectedAddress) {
+        selectedAddress = [addressArray objectAtIndex:0];
+    }
+    dropDownOpen = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -186,7 +190,6 @@
     switch (row) {
         case 0: {
             DropDownCell *cell = (DropDownCell*) [tableView dequeueReusableCellWithIdentifier:DropDownCellIdentifier];
-                    
             if (cell == nil){
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"DropDownCell" owner:self options:nil] objectAtIndex:0];
 //                NSLog(@"New Cell Made");
@@ -201,31 +204,32 @@
 //                        break;
 //                    }
 //                }
-//                topLevelObjects = nil;
             }
-            
-            [[cell textLabel] setText:[addressArray objectAtIndex:row]];
-            selectedAddress = cell.textLabel.text;
+            if (dropDownOpen == YES) {
+                [cell setCellOpenImage];
+//                cell.arrow_down.image = [UIImage imageNamed:@"arrow_up.png"];
+            }
+            else {
+                [cell setCellClosedImage];
+//                cell.arrow_down.image = [UIImage imageNamed:@"arrow_down.png"];
+            }
+//            [[cell textLabel] setText:[addressArray objectAtIndex:row]];
+//            selectedAddress = cell.textLabel.text;
+            cell.textLabel.text = selectedAddress;
             // Configure the cell.
             return cell;
             break;
             }
-            default: {
-                UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-                    
-                if (cell == nil) {
-                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-                }
-                    
-                //NSString *label = [NSString stringWithFormat:@"Option %i", [indexPath row]];
-                    
-                [[cell textLabel] setText:[addressArray objectAtIndex:row - 1]];
-                    
-                // Configure the cell.
-                return cell;
-                    
-                break;
+        default: {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             }
+            [[cell textLabel] setText:[addressArray objectAtIndex:row - 1]];
+            // Configure the cell.
+            return cell;
+            break;
+        }
     }
 }
 
@@ -253,17 +257,17 @@
                 [indexPathArray addObject:[NSIndexPath indexPathForRow:[indexPath row] + i +1 inSection:[indexPath section]]];
             }
             
-            if ([cell isOpen])
+            if (dropDownOpen == YES)
             {
-                [cell setClosed];
-                dropDownOpen = [cell isOpen];
+                [cell setCellClosedImage];
+                dropDownOpen = NO;
                         
                 [tableView deleteRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationTop];
             }
             else
             {
-                [cell setOpen];
-                dropDownOpen = [cell isOpen];
+                [cell setCellOpenImage];
+                dropDownOpen = YES;
                         
                 [tableView insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationTop];
             }
@@ -275,10 +279,13 @@
             selectedAddress = [[[tableView cellForRowAtIndexPath:indexPath] textLabel] text];
                     
             NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:[indexPath section]];
+//            DropDownCell *cell = [[DropDownCell alloc] init];
             DropDownCell *cell = (DropDownCell*) [tableView cellForRowAtIndexPath:path];
-            
-            cell.textLabel.text = selectedAddress;
-//            [[cell textLabel] setText:selectedAddress];
+            if (cell) {
+                cell.textLabel.text = selectedAddress;
+                [cell setCellClosedImage];
+            }
+//
             
             // close the dropdown cell
             NSMutableArray *indexPathArray = [[NSMutableArray alloc] init];
@@ -286,11 +293,10 @@
                 [indexPathArray addObject:[NSIndexPath indexPathForRow:[path row] + i +1 inSection:[indexPath section]]];
             }       
             
-            [cell setClosed];
-            dropDownOpen = [cell isOpen];
-                    
+//            [cell setClosed];
+//            dropDownOpen = [cell isOpen];
+            dropDownOpen = NO;
             [tableView deleteRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationTop];
-                    
             break;
         }
     }

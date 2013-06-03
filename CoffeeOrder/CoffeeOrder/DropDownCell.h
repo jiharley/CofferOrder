@@ -15,16 +15,16 @@
     IBOutlet UIImageView *arrow_up;
     IBOutlet UIImageView *arrow_down;
     
-    BOOL isOpen;
+//    BOOL isOpen;
 
 }
 
-- (void) setOpen;
-- (void) setClosed;
+- (void) setCellOpenImage;
+- (void) setCellClosedImage;
 
-@property (nonatomic) BOOL isOpen;
-@property (nonatomic, retain) IBOutlet UILabel *textLabel;
-@property (nonatomic, retain) IBOutlet UIImageView *arrow_up;
-@property (nonatomic, retain) IBOutlet UIImageView *arrow_down;
+//@property (nonatomic) BOOL isOpen;
+@property (nonatomic, strong) IBOutlet UILabel *textLabel;
+@property (nonatomic, strong) IBOutlet UIImageView *arrow_up;
+@property (nonatomic, strong) IBOutlet UIImageView *arrow_down;
 
 @end

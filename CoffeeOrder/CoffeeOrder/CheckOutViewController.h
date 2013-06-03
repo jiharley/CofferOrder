@@ -23,7 +23,7 @@
 @property (strong, nonatomic) NSArray *addressArray;
 @property (strong, nonatomic) NSArray *orderedFoodArray;
 @property BOOL dropDownOpen;
-@property NSString *selectedAddress;
+@property (retain, nonatomic) NSString *selectedAddress;
 
 - (IBAction)submitOrder:(id)sender;
 @end

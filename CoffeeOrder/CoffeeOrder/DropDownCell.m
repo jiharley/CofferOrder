@@ -11,20 +11,22 @@
 
 @implementation DropDownCell
 
-@synthesize textLabel, arrow_up, arrow_down, isOpen;
+@synthesize textLabel, arrow_up, arrow_down;
 
-- (void) setOpen 
+- (void) setCellOpenImage 
 {
-    [arrow_down setHidden:YES];
-    [arrow_up setHidden:NO];
-    [self setIsOpen:YES];
+    arrow_down.image = [UIImage imageNamed:@"arrow_up.png"];
+//    [arrow_down setHidden:YES];
+//    [arrow_up setHidden:NO];
+//    [self setIsOpen:YES];
 }
 
-- (void) setClosed
+- (void) setCellClosedImage
 {
-    [arrow_down setHidden:NO];
-    [arrow_up setHidden:YES];
-    [self setIsOpen:NO];
+    arrow_down.image = [UIImage imageNamed:@"arrow_down.png"];
+//    [arrow_down setHidden:NO];
+//    [arrow_up setHidden:YES];
+//    [self setIsOpen:NO];
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
