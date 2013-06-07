@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1</key>
+	<dict>
+		<key>id</key>
+		<string>601</string>
+		<key>name</key>
+		<string>凯撒色拉</string>
+		<key>price</key>
+		<string>52</string>
+		<key>material</key>
+		<string>配水煮鸡蛋、黑橄榄、蛋黄酱、黑胡椒</string>
+	</dict>
+	<key>2</key>
+	<dict>
+		<key>id</key>
+		<string>603</string>
+		<key>name</key>
+		<string>意大利田园色拉</string>
+		<key>price</key>
+		<string>46</string>
+		<key>material</key>
+		<string>配水煮鸡蛋、培根碎、巴马臣芝士、生菜、面包</string>
+	</dict>
+	<key>3</key>
+	<dict>
+		<key>id</key>
+		<string>608</string>
+		<key>name</key>
+		<string>烟熏三文鱼鲜虾色拉</string>
+		<key>price</key>
+		<string>60</string>
+		<key>material</key>
+		<string>配鲜虾、烟熏三文鱼、水瓜柳、樱桃番茄、生菜</string>
+	</dict>
+	<key>4</key>
+	<dict>
+		<key>id</key>
+		<string>610</string>
+		<key>name</key>
+		<string>莫苏里拉奶酪色拉</string>
+		<key>price</key>
+		<string>52</string>
+		<key>material</key>
+		<string>配新鲜莫苏里拉奶酪、西红柿、芝麻菜、黑橄榄、橄榄油、罗勒酱</string>
+	</dict>
+</dict>
+</plist>

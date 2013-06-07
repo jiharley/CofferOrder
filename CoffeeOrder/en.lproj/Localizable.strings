@@ -1,0 +1,60 @@
+
+/*
+  Localizable.strings
+  CoffeeOrder
+
+  Created by tj  on 13-5-24.
+  Copyright (c) 2013年 tj . All rights reserved.
+*/
+"menu" = "menu";
+"shoppingCart" = "shopping cart";
+"myAccount" = "my account";
+"aboutUs" = "about us";
+//global
+"confirm" = "OK";
+"cancel" = "Cancel";
+"prompt" = "Prompt";
+//Side view
+"category list" = "Category List";
+//shopping cart view
+"please login first" = "You haven't log in,please switch to 'My Account' tab to log in first";
+//check out view
+"submit order success prompt" = "Congratulations!We have received your order and will call you to confirm the order soon!!!";
+"submit order failed prompt" = "Submit order failed~~~";
+"request failed prompt" = "request timeout, please check your network ~~~";
+"please input the name" = "please input the name";
+"please add address" = "Blank address,please switch to 'My Account' tab to add delivery address";
+"submitting order" = "Submitting order...";
+//my account view
+"add address" = "Add Address";
+"add" = "Add";
+"edit" = "Edit";
+"delete" = "Delete";
+"deleting" = "deleting...";
+"adding" = "adding...";
+"add success" = "Added!";
+"add failed" = "Add address failed！";
+"delete success" = "Deleted!";
+"delete failed" = "Delete address failed！";
+"add address request timeout" = "request timeout, add address failed";
+"delete address request timeout" = "request timeout, delete address failed";
+"contain invalid character" = "can't contain invalid character";
+"quit confirm" = "Are you sure?";
+//login view
+"phone number hasn't registered" = "phone number hasn't registered";
+"wrong password" = "wrong password";
+"login failed" = "login failed";
+"please input phone number" = "please input the phone number";
+"please input password" = "please input password";
+//register view
+"register success" = "Register successfully";
+"register failed" = "Register failed";
+"user exists" = "The number has been registered";
+"user name empty" = "Please input your name";
+"phone number empty" = "Please input your phone number";
+"phone number too long" = "phone number is too long";
+"invalid email format" = "Invalid email format";
+"password length invalid" = "Password length should be no less than 6";
+"different password input" = "You have input different password";
+
+

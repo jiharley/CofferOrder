@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1</key>
+	<dict>
+		<key>id</key>
+		<string>901</string>
+		<key>name</key>
+		<string>野菌意大利饭</string>
+		<key>price</key>
+		<integer>52</integer>
+		<key>material</key>
+		<string></string>
+	</dict>
+	<key>2</key>
+	<dict>
+		<key>id</key>
+		<string>902</string>
+		<key>name</key>
+		<string>鸡肉蘑菇意大利饭</string>
+		<key>price</key>
+		<string>56</string>
+		<key>material</key>
+		<string></string>
+	</dict>
+	<key>3</key>
+	<dict>
+		<key>id</key>
+		<string>903</string>
+		<key>name</key>
+		<string>海鲜意大利饭</string>
+		<key>price</key>
+		<string>60</string>
+		<key>material</key>
+		<string></string>
+	</dict>
+</dict>
+</plist>
